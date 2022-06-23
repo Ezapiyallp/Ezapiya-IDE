@@ -15,12 +15,17 @@ class cls_main_from(QtWidgets.QMainWindow):
         self.ui.tabWidget.removeTab(0)
         self.ui.tabWidget.tabCloseRequested.connect(self.closeActiveTab)
         self.editor = SimplePythonEditor()
+
         self.ui.tabWidget.addTab(self.editor, 'New File')
         self.ui.actionNew.triggered.connect(self.newfile_action)
+        self.ui.actionClose_File.triggered.connect(self.closeActiveTab)
     def closeActiveTab(self):
         self.ui.tabWidget.removeTab(self.ui.tabWidget.currentIndex())
         if self.ui.tabWidget.count() == 0:
             self.ui.tabWidget.addTab(self.editor, 'New File')
 
+
     def newfile_action(self):
+        self.editor = SimplePythonEditor()
         self.ui.tabWidget.addTab(self.editor, 'New File')
+        print("this ")

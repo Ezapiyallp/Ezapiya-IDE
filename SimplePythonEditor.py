@@ -26,8 +26,9 @@ class SimplePythonEditor(QsciScintilla):
         font.setPointSize(10)
         self.setFont(font)
         self.setMarginsFont(font)
-
-        # Margin 0 is used for line numbers
+        #self.setColor(QColor('lightblue'))
+        self.setPaper(QColor('lightblue'))
+                # Margin 0 is used for line numbers
         fontmetrics = QFontMetrics(font)
         self.setMarginsFont(font)
         self.setMarginWidth(0, fontmetrics.width("00000") + 6)
