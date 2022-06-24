@@ -61,6 +61,23 @@ class SimplePythonEditor(QsciScintilla):
         #lexer = QsciLexerPython()
         lexer = QsciLexerCPP()
         lexer.setDefaultFont(font)
+
+        lexer.setDefaultPaper(QColor("#3c3c3c"))
+        lexer.setDefaultColor(QColor("#f9f9f9"))
+        lexer.setColor(QColor("#A69C9C"), 0);
+        lexer.setColor(QColor("#A95151"), 1);
+        lexer.setColor(QColor("#6C51A9"), 2);
+        lexer.setColor(QColor("#BDA5F4"), 3);
+        lexer.setColor(QColor("#46939C"), 4);
+        lexer.setColor(QColor("#C5BA40"), 5);
+        lexer.setColor(QColor("#479F5C"), 6);
+        lexer.setColor(QColor("#96A82F"), 7);
+        lexer.setColor(QColor("#A87F2F"), 8);
+        lexer.setColor(QColor("#FDD68A"), 9);
+        lexer.setColor(QColor("#E1898F"), 10);
+        self.setCaretForegroundColor(QColor("#FFFFFF"))
+        self.setCaretLineBackgroundColor(QColor("#000000"))
+
         self.setLexer(lexer)
         #self.SendScintilla(QsciScintilla.SCI_STYLESETFONT, 1, 'Courier')
 
