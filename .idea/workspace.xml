@@ -120,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656000817408</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="new look">
+      <created>1656075831015</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1656075831015</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -140,6 +147,7 @@
     <MESSAGE value="added qrc and dock_work Done" />
     <MESSAGE value="DockWigdet Done" />
     <MESSAGE value="Add Editor" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Editor" />
+    <MESSAGE value="new look" />
+    <option name="LAST_COMMIT_MESSAGE" value="new look" />
   </component>
 </project>

@@ -6,7 +6,11 @@
 # Eli Bendersky (eliben@gmail.com)
 # This code is in the public domain
 #-------------------------------------------------------------------------
+import os
 import sys
+
+import PyQt5
+from PyQt5 import Qsci
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.Qsci import QsciScintilla, QsciLexerPython,QsciLexerCPP
@@ -52,7 +56,7 @@ class SimplePythonEditor(QsciScintilla):
 
         # Current line visible with special background color
         self.setCaretLineVisible(True)
-        self.setCaretLineBackgroundColor(QColor("#ffe4e4"))
+
 
         # Set Python lexer
         # Set style for Python comments (style number 1) to a fixed-width
@@ -75,15 +79,23 @@ class SimplePythonEditor(QsciScintilla):
         lexer.setColor(QColor("#A87F2F"), 8);
         lexer.setColor(QColor("#FDD68A"), 9);
         lexer.setColor(QColor("#E1898F"), 10);
+
         self.setCaretForegroundColor(QColor("#FFFFFF"))
         self.setCaretLineBackgroundColor(QColor("#000000"))
 
         self.setLexer(lexer)
-        #self.SendScintilla(QsciScintilla.SCI_STYLESETFONT, 1, 'Courier')
 
-        # Don't want to see the horizontal scrollbar at all
-        # Use raw message to Scintilla here (all messages are documented
-        # here: http://www.scintilla.org/ScintillaDoc.html)
+        ## setup autocompletion
+        api = Qsci.QsciAPIs(lexer)
+        pyqt_path = os.path.dirname(PyQt5.__file__)
+        api.load(os.path.join(pyqt_path, "Qt/qsci/api/python/Python-3.6.api"))
+
+        api.prepare()
+        self.setAutoCompletionThreshold(1)
+        self.setAutoCompletionSource(Qsci.QsciScintilla.AcsAll)
+
+
+
         self.SendScintilla(QsciScintilla.SCI_SETHSCROLLBAR, 0)
 
         # not too small
