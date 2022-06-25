@@ -15,6 +15,7 @@ from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.Qsci import QsciScintilla, QsciLexerPython,QsciLexerCPP
 from PyQt5.QtWidgets import QApplication
+import keyword
 
 
 class SimplePythonEditor(QsciScintilla):
@@ -63,7 +64,7 @@ class SimplePythonEditor(QsciScintilla):
         # courier.
         #
         #lexer = QsciLexerPython()
-        lexer = QsciLexerCPP()
+        lexer = QsciLexerCPP(self,False)
         lexer.setDefaultFont(font)
 
         lexer.setDefaultPaper(QColor("#3c3c3c"))
@@ -85,14 +86,26 @@ class SimplePythonEditor(QsciScintilla):
 
         self.setLexer(lexer)
 
-        ## setup autocompletion
-        api = Qsci.QsciAPIs(lexer)
-        pyqt_path = os.path.dirname(PyQt5.__file__)
-        api.load(os.path.join(pyqt_path, "Qt/qsci/api/python/Python-3.6.api"))
 
+
+        api = Qsci.QsciAPIs(lexer)
+        ## Add autocompletion strings
+        for key in keyword.kwlist + dir(__builtins__):
+            api.add(key)
+        api.add("aLongString")
+        api.add("aLongerString")
+        api.add("aDifferentString")
+        api.add("sOmethingElse")
+        ## Compile the api for use in the lexer
         api.prepare()
+
+
+
+        self.setAutoCompletionCaseSensitivity(False)
+        self.setAutoCompletionReplaceWord(False)
         self.setAutoCompletionThreshold(1)
         self.setAutoCompletionSource(Qsci.QsciScintilla.AcsAll)
+
 
 
 
