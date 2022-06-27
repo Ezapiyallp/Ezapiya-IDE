@@ -4,6 +4,7 @@
     <list default="true" id="f4f90978-62e2-4ff4-97de-3e29be78eb33" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SimplePythonEditor.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimplePythonEditor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cls_main_from.py" beforeDir="false" afterPath="$PROJECT_DIR$/cls_main_from.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +135,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656083349522</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="autocomplit">
+      <created>1656153129406</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1656153129411</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

@@ -19,6 +19,8 @@ class cls_main_from(QtWidgets.QMainWindow):
         self.ui.tabWidget.addTab(self.editor, 'New File')
         self.ui.actionNew.triggered.connect(self.newfile_action)
         self.ui.actionClose_File.triggered.connect(self.closeActiveTab)
+        self.ui.actionOpen.triggered.connect(self.openfile_action)
+        self.ui.actionSave_File.triggered.connect(self.savefile_actoin)
     def closeActiveTab(self):
         self.ui.tabWidget.removeTab(self.ui.tabWidget.currentIndex())
         if self.ui.tabWidget.count() == 0:
@@ -29,3 +31,8 @@ class cls_main_from(QtWidgets.QMainWindow):
         self.editor = SimplePythonEditor()
         self.ui.tabWidget.addTab(self.editor, 'New File')
         print("this ")
+    def openfile_action(self):
+        #print("file open menu click")
+        self.editor.openFile()
+    def savefile_actoin(self):
+        self.editor.saveFile()

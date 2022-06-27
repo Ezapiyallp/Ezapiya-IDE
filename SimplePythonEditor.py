@@ -14,7 +14,7 @@ from PyQt5 import Qsci
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.Qsci import QsciScintilla, QsciLexerPython,QsciLexerCPP
-from PyQt5.QtWidgets import QApplication
+from PyQt5.QtWidgets import QApplication, QShortcut, QFileDialog
 import keyword
 
 
@@ -24,7 +24,13 @@ class SimplePythonEditor(QsciScintilla):
     def __init__(self, parent=None):
         super(SimplePythonEditor, self).__init__(parent)
 
+        #fileHanding
+        self.fullFileName=""
+        self.fileName=""
+        self.fileExtention=""
+
         # Set the default font
+
         font = QFont()
         font.setFamily('Courier')
         font.setFixedPitch(True)
@@ -111,6 +117,10 @@ class SimplePythonEditor(QsciScintilla):
 
         self.SendScintilla(QsciScintilla.SCI_SETHSCROLLBAR, 0)
 
+
+        shortcut_ctrl_space =  QShortcut(QKeySequence("Ctrl+Space"),self);
+        #self.connect(shortcut_ctrl_space, SIGNAL(activated()), self,SLOT(autoCompleteFromAll()));
+
         # not too small
         self.setMinimumSize(600, 450)
 
@@ -120,3 +130,27 @@ class SimplePythonEditor(QsciScintilla):
             self.markerDelete(nline, self.ARROW_MARKER_NUM)
         else:
             self.markerAdd(nline, self.ARROW_MARKER_NUM)
+    def openFile(self):
+        fileName = QFileDialog.getOpenFileName()
+        #print(fileName[0])
+        self.fullFileName = fileName[0]
+        tfileName=fileName[0]
+        tfileName=tfileName.split('/')
+        self.fileName = tfileName[len(tfileName)-1]
+        #print(self.fileName)
+        ext = self.fileName.split('.')
+        self.fileExtention = ext[len(ext)-1]
+       # print(self.fileExtention)
+        self.setText(open(self.fullFileName).read())
+    def saveFile(self):
+        fileName = QFileDialog.getSaveFileName()
+       # print(fileName[0])
+        self.fullFileName = fileName[0]
+        tfileName = fileName[0]
+        tfileName = tfileName.split('/')
+        self.fileName = tfileName[len(tfileName) - 1]
+        print(self.fileName)
+        ext = self.fileName.split('.')
+        self.fileExtention = ext[len(ext) - 1]
+        f = open(self.fullFileName, "w")
+        f.write(self.text())
