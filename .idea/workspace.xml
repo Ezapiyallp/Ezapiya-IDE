@@ -149,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656330849947</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="open save 1">
+      <created>1656340867305</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1656340867306</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -172,7 +179,8 @@
     <MESSAGE value="new look" />
     <MESSAGE value="autocomplit" />
     <MESSAGE value="save open" />
-    <option name="LAST_COMMIT_MESSAGE" value="save open" />
+    <MESSAGE value="open save 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="open save 1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

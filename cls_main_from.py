@@ -36,17 +36,18 @@ class cls_main_from(QtWidgets.QMainWindow):
     def changeTitalofActiveTab(self,tital):
         #self.ui.tabWidget.removeTab(self.ui.tabWidget.currentIndex())
         self.ui.tabWidget.setWindowTitle("dsfsdfdsfds")
-
+        self.ui.tabWidget.setTabText(self.ui.tabWidget.currentIndex(),tital)
 
 
     def newfile_action(self):
         self.editor = SimplePythonEditor()
         self.ui.tabWidget.addTab(self.editor, 'New File')
         self.tabCount = self.tabCount + 1
-        print("this ")
+
     def openfile_action(self):
         #print("file open menu click")
-        self.editor.openFile()
-        self.changeTitalofActiveTab("finidsfdsf")
+        fileTital= self.editor.openFile()
+        self.changeTitalofActiveTab(fileTital)
     def savefile_actoin(self):
-        self.editor.saveFile()
+        fileTital=self.editor.saveFile()
+        self.changeTitalofActiveTab(fileTital)

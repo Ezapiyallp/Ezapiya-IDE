@@ -148,6 +148,7 @@ class SimplePythonEditor(QsciScintilla):
        # print(self.fileExtention)
         self.setText(open(self.fullFileName).read())
         self.saveStatus = "Yes"
+        return self.fileName
 
     def saveFile(self):
         if self.saveStatus == "Yes":
@@ -166,3 +167,4 @@ class SimplePythonEditor(QsciScintilla):
             f = open(self.fullFileName, "w")
             f.write(self.text())
         self.saveStatus = "Yes"
+        return self.fileName
