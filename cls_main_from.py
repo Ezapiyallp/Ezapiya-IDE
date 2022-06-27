@@ -13,26 +13,40 @@ class cls_main_from(QtWidgets.QMainWindow):
         self.ui.tabWidget.setTabsClosable(True)
         self.ui.tabWidget.removeTab(0)
         self.ui.tabWidget.removeTab(0)
-        self.ui.tabWidget.tabCloseRequested.connect(self.closeActiveTab)
+        #self.ui.tabWidget.tabCloseRequested.connect(self.closeActiveTab)
+        self.ui.tabWidget.tabCloseRequested.connect(self.closeTab)
         self.editor = SimplePythonEditor()
 
         self.ui.tabWidget.addTab(self.editor, 'New File')
         self.ui.actionNew.triggered.connect(self.newfile_action)
-        self.ui.actionClose_File.triggered.connect(self.closeActiveTab)
+        self.ui.actionClose_File.triggered.connect(self.closeTab)
         self.ui.actionOpen.triggered.connect(self.openfile_action)
         self.ui.actionSave_File.triggered.connect(self.savefile_actoin)
-    def closeActiveTab(self):
-        self.ui.tabWidget.removeTab(self.ui.tabWidget.currentIndex())
-        if self.ui.tabWidget.count() == 0:
+        self.tabCount = 0
+
+    def closeTab (self, currentIndex):
+        #currentqwidget = self.ui.tabWidget(currentIndex)
+        #currentqwidget.deleteLater()
+        self.ui.tabWidget.removeTab(currentIndex)
+        self.tabCount = self.tabCount - 1
+        if currentIndex==0 and self.tabCount==-1 :
             self.ui.tabWidget.addTab(self.editor, 'New File')
+            self.tabCount = self.tabCount + 1
+
+    def changeTitalofActiveTab(self,tital):
+        #self.ui.tabWidget.removeTab(self.ui.tabWidget.currentIndex())
+        self.ui.tabWidget.setWindowTitle("dsfsdfdsfds")
+
 
 
     def newfile_action(self):
         self.editor = SimplePythonEditor()
         self.ui.tabWidget.addTab(self.editor, 'New File')
+        self.tabCount = self.tabCount + 1
         print("this ")
     def openfile_action(self):
         #print("file open menu click")
         self.editor.openFile()
+        self.changeTitalofActiveTab("finidsfdsf")
     def savefile_actoin(self):
         self.editor.saveFile()

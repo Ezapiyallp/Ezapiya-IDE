@@ -28,13 +28,14 @@ class SimplePythonEditor(QsciScintilla):
         self.fullFileName=""
         self.fileName=""
         self.fileExtention=""
+        self.saveStatus="No"
 
         # Set the default font
 
         font = QFont()
         font.setFamily('Courier')
         font.setFixedPitch(True)
-        font.setPointSize(10)
+        font.setPointSize(16)
         self.setFont(font)
         self.setMarginsFont(font)
         #self.setColor(QColor('lightblue'))
@@ -44,7 +45,8 @@ class SimplePythonEditor(QsciScintilla):
         self.setMarginsFont(font)
         self.setMarginWidth(0, fontmetrics.width("00000") + 6)
         self.setMarginLineNumbers(0, True)
-        self.setMarginsBackgroundColor(QColor("#cccccc"))
+        self.setMarginsBackgroundColor(QColor("#232323"))
+        self.setMarginsForegroundColor(QColor("#FFF"))
 
         # Clickable margin 1 for showing markers
         self.setMarginSensitivity(1, True)
@@ -62,7 +64,8 @@ class SimplePythonEditor(QsciScintilla):
         self.setBraceMatching(QsciScintilla.SloppyBraceMatch)
 
         # Current line visible with special background color
-        self.setCaretLineVisible(True)
+        #self.setCaretLineVisible(True)
+        self.setCaretLineVisible(False)
 
 
         # Set Python lexer
@@ -81,14 +84,16 @@ class SimplePythonEditor(QsciScintilla):
         lexer.setColor(QColor("#BDA5F4"), 3);
         lexer.setColor(QColor("#46939C"), 4);
         lexer.setColor(QColor("#C5BA40"), 5);
-        lexer.setColor(QColor("#479F5C"), 6);
+        lexer.setColor(QColor("#296C39"), 6); # String normal
         lexer.setColor(QColor("#96A82F"), 7);
         lexer.setColor(QColor("#A87F2F"), 8);
         lexer.setColor(QColor("#FDD68A"), 9);
         lexer.setColor(QColor("#E1898F"), 10);
 
         self.setCaretForegroundColor(QColor("#FFFFFF"))
-        self.setCaretLineBackgroundColor(QColor("#000000"))
+       # self.setCaretLineBackgroundColor(QColor("#898888"))
+
+
 
         self.setLexer(lexer)
 
@@ -142,15 +147,22 @@ class SimplePythonEditor(QsciScintilla):
         self.fileExtention = ext[len(ext)-1]
        # print(self.fileExtention)
         self.setText(open(self.fullFileName).read())
+        self.saveStatus = "Yes"
+
     def saveFile(self):
-        fileName = QFileDialog.getSaveFileName()
-       # print(fileName[0])
-        self.fullFileName = fileName[0]
-        tfileName = fileName[0]
-        tfileName = tfileName.split('/')
-        self.fileName = tfileName[len(tfileName) - 1]
-        print(self.fileName)
-        ext = self.fileName.split('.')
-        self.fileExtention = ext[len(ext) - 1]
-        f = open(self.fullFileName, "w")
-        f.write(self.text())
+        if self.saveStatus == "Yes":
+            f = open(self.fullFileName, "w")
+            f.write(self.text())
+        else:
+            fileName = QFileDialog.getSaveFileName()
+            # print(fileName[0])
+            self.fullFileName = fileName[0]
+            tfileName = fileName[0]
+            tfileName = tfileName.split('/')
+            self.fileName = tfileName[len(tfileName) - 1]
+            print(self.fileName)
+            ext = self.fileName.split('.')
+            self.fileExtention = ext[len(ext) - 1]
+            f = open(self.fullFileName, "w")
+            f.write(self.text())
+        self.saveStatus = "Yes"
