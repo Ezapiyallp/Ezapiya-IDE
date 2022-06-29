@@ -172,3 +172,7 @@ class SimplePythonEditor(QsciScintilla):
     def getFullFileName(self):
         return self.fullFileName
 
+    def setCommand(self,Command):
+        pass
+    def setFullFileNmae(self,Fname):
+        self.fullFileName=Fname

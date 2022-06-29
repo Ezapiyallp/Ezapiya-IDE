@@ -8,7 +8,7 @@ import icon_qrc
 class cls_main_from(QtWidgets.QMainWindow):
     def __init__(self):
         super(cls_main_from, self).__init__()
-        self.TabId=0
+
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.ui.dockWidget_message.setFloating(False)
@@ -19,13 +19,17 @@ class cls_main_from(QtWidgets.QMainWindow):
         self.ui.tabWidget.tabCloseRequested.connect(self.closeTab)
         self.editor = SimplePythonEditor()
 
-        self.ui.tabWidget.addTab(self.editor, 'New File')
+        self.ui.tabWidget.addTab(self.editor, 'New File 1')
         self.ui.actionNew.triggered.connect(self.newfile_action)
         self.ui.actionClose_File.triggered.connect(self.closeTab)
         self.ui.actionOpen.triggered.connect(self.openfile_action)
         self.ui.actionSave_File.triggered.connect(self.savefile_actoin)
-        self.tabCount = 0
-
+        self.ui.actionPaste.triggered.connect(self.paste_action)
+        self.tabCount = 2
+    def paste_action(self):
+        i= self.getActiveTabIndex()
+        xx = self.ui.tabWidget.widget(i)
+        xx.paste()
     def closeTab (self, currentIndex):
         #currentqwidget = self.ui.tabWidget(currentIndex)
         #currentqwidget.deleteLater()
@@ -44,17 +48,26 @@ class cls_main_from(QtWidgets.QMainWindow):
 
 
     def newfile_action(self):
+        tfileName='New File'+str(self.tabCount)
         self.editor = SimplePythonEditor()
-        self.TabId = self.TabId + 1
-        self.editor.setTabID(self.TabId)
         self.editor.setText("")
-        self.ui.tabWidget.addTab(self.editor, 'New File')
+        self.editor.setFullFileNmae(tfileName)
+        self.ui.tabWidget.addTab(self.editor, tfileName)
         self.tabCount = self.tabCount + 1
 
+        #self.ui.tabWidget.currentWidget()
 
+    def getActiveTabIndex(self):
+        yy=self.ui.tabWidget.currentWidget()
+        for i in range(0,self.ui.tabWidget.count()):
+            xx = self.ui.tabWidget.widget(i)
+            if yy.getFullFileName()==xx.getFullFileName():
+                break
+        print(i)
+        return i
     def openfile_action(self):
         ne= SimplePythonEditor()
-        self.TabId = self.TabId + 1
+
         #self.ne.setTabID(self.TabId)
         #self.ne.TabID=self.TabId
         fileName = QFileDialog.getOpenFileName()
@@ -62,11 +75,10 @@ class cls_main_from(QtWidgets.QMainWindow):
         status=0
         for i in range(0,self.ui.tabWidget.count()):
             xx = self.ui.tabWidget.widget(i)
-            #print(xx.getFullFileName())
             if fullFileName==xx.getFullFileName():
                 status = 1
                 break
-        print(i)
+
         if status == 1:
             self.ui.tabWidget.setCurrentIndex(i)
         else:
