@@ -29,6 +29,7 @@ class SimplePythonEditor(QsciScintilla):
         self.fileName=""
         self.fileExtention=""
         self.saveStatus="No"
+        self.TabID=0
 
         # Set the default font
 
@@ -148,7 +149,7 @@ class SimplePythonEditor(QsciScintilla):
        # print(self.fileExtention)
         self.setText(open(self.fullFileName).read())
         self.saveStatus = "Yes"
-        return self.fileName
+        return self.fullFileName
 
     def saveFile(self):
         if self.saveStatus == "Yes":
@@ -167,4 +168,7 @@ class SimplePythonEditor(QsciScintilla):
             f = open(self.fullFileName, "w")
             f.write(self.text())
         self.saveStatus = "Yes"
-        return self.fileName
+        return self.fullFileName
+    def getFullFileName(self):
+        return self.fullFileName
+

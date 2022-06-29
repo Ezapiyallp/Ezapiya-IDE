@@ -7,6 +7,7 @@ import icon_qrc
 class cls_main_from(QtWidgets.QMainWindow):
     def __init__(self):
         super(cls_main_from, self).__init__()
+        self.TabId=0
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.ui.dockWidget_message.setFloating(False)
@@ -30,6 +31,7 @@ class cls_main_from(QtWidgets.QMainWindow):
         self.ui.tabWidget.removeTab(currentIndex)
         self.tabCount = self.tabCount - 1
         if currentIndex==0 and self.tabCount==-1 :
+            self.editor.setText("")
             self.ui.tabWidget.addTab(self.editor, 'New File')
             self.tabCount = self.tabCount + 1
 
@@ -39,15 +41,39 @@ class cls_main_from(QtWidgets.QMainWindow):
         self.ui.tabWidget.setTabText(self.ui.tabWidget.currentIndex(),tital)
 
 
+
     def newfile_action(self):
         self.editor = SimplePythonEditor()
+        self.TabId = self.TabId + 1
+        self.editor.setTabID(self.TabId)
+        self.editor.setText("")
         self.ui.tabWidget.addTab(self.editor, 'New File')
         self.tabCount = self.tabCount + 1
 
+
     def openfile_action(self):
-        #print("file open menu click")
-        fileTital= self.editor.openFile()
-        self.changeTitalofActiveTab(fileTital)
+        ne= SimplePythonEditor()
+        self.TabId = self.TabId + 1
+        #self.ne.setTabID(self.TabId)
+        #self.ne.TabID=self.TabId
+        fileTital= ne.openFile()
+        tfileName = fileTital
+        tfileName = tfileName.split('/')
+        fileName = tfileName[len(tfileName) - 1]
+        self.ui.tabWidget.addTab(ne, fileName)
+        self.tabCount = self.tabCount + 1
+        print(self.ui.tabWidget.count())
+
+        #xx.setText("")
+        for i in range(1,self.ui.tabWidget.count()):
+            xx = self.ui.tabWidget.widget(i)
+            print(xx.getFullFileName())
+
+
+
     def savefile_actoin(self):
         fileTital=self.editor.saveFile()
-        self.changeTitalofActiveTab(fileTital)
+        tfileName = fileTital
+        tfileName = tfileName.split('/')
+        fileName = tfileName[len(tfileName) - 1]
+        self.changeTitalofActiveTab(fileName)
