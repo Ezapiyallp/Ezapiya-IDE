@@ -136,8 +136,8 @@ class SimplePythonEditor(QsciScintilla):
             self.markerDelete(nline, self.ARROW_MARKER_NUM)
         else:
             self.markerAdd(nline, self.ARROW_MARKER_NUM)
-    def openFile(self):
-        fileName = QFileDialog.getOpenFileName()
+    def openFile(self,fileName):
+        #fileName = QFileDialog.getOpenFileName()
         #print(fileName[0])
         self.fullFileName = fileName[0]
         tfileName=fileName[0]

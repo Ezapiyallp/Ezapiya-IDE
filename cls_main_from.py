@@ -1,5 +1,6 @@
 from PyQt5 import QtWidgets
 from PyQt5.QtCore import QSize
+from PyQt5.QtWidgets import QFileDialog
 
 from mainForm import Ui_MainWindow
 from SimplePythonEditor import SimplePythonEditor
@@ -56,18 +57,28 @@ class cls_main_from(QtWidgets.QMainWindow):
         self.TabId = self.TabId + 1
         #self.ne.setTabID(self.TabId)
         #self.ne.TabID=self.TabId
-        fileTital= ne.openFile()
-        tfileName = fileTital
-        tfileName = tfileName.split('/')
-        fileName = tfileName[len(tfileName) - 1]
-        self.ui.tabWidget.addTab(ne, fileName)
-        self.tabCount = self.tabCount + 1
-        print(self.ui.tabWidget.count())
-
-        #xx.setText("")
-        for i in range(1,self.ui.tabWidget.count()):
+        fileName = QFileDialog.getOpenFileName()
+        fullFileName = fileName[0]
+        status=0
+        for i in range(0,self.ui.tabWidget.count()):
             xx = self.ui.tabWidget.widget(i)
-            print(xx.getFullFileName())
+            #print(xx.getFullFileName())
+            if fullFileName==xx.getFullFileName():
+                status = 1
+                break
+        print(i)
+        if status == 1:
+            self.ui.tabWidget.setCurrentIndex(i)
+        else:
+            fileTital= ne.openFile(fileName)
+            tfileName = fileTital
+            tfileName = tfileName.split('/')
+            fileName = tfileName[len(tfileName) - 1]
+            self.ui.tabWidget.addTab(ne, fileName)
+            self.tabCount = self.tabCount + 1
+            self.ui.tabWidget.setCurrentIndex(self.ui.tabWidget.count()-1)
+
+
 
 
 
