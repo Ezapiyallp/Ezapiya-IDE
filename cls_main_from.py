@@ -10,11 +10,18 @@ class cls_main_from(QtWidgets.QMainWindow):
         super(cls_main_from, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+
+        self.message_window_status = True
+        self.tool_box_status = True
+        self.project_window_status = True
+        self.property_window_status = True
+
         self.ui.dockWidget_message.setFloating(False)
         self.ui.tabWidget.setTabsClosable(True)
         self.ui.tabWidget.removeTab(0)
         self.ui.tabWidget.removeTab(0)
         self.tabCount = 2
+
         #self.ui.tabWidget.tabCloseRequested.connect(self.closeActiveTab)
         self.ui.tabWidget.tabCloseRequested.connect(self.closeTab)
         self.editor = SimplePythonEditor()
@@ -154,13 +161,33 @@ class cls_main_from(QtWidgets.QMainWindow):
 
         ##### View Mune All Action
     def message_window_action(self):
-        self.ui.dockWidget_message.setVisible(False)
+            if self.message_window_status==True:
+                self.ui.dockWidget_message.setVisible(False)
+                self.message_window_status = False
+            else:
+                self.ui.dockWidget_message.setVisible(True)
+                self.message_window_status = True
     def tool_box_action(self):
-        pass
+        if self.tool_box_status == True:
+            self.ui.dockWidget_tools.setVisible(False)
+            self.tool_box_status = False
+        else:
+            self.ui.dockWidget_tools.setVisible(True)
+            self.tool_box_status = True
     def project_window_action(self):
-        pass
+        if self.project_window_status == True:
+            self.ui.dockWidget_project.setVisible(False)
+            self.project_window_status =False
+        else:
+            self.ui.dockWidget_project.setVisible(True)
+            self.project_window_status = True
     def property_window_action(self):
-        pass
+        if self.project_window_status == True:
+            self.ui.dockWidget_preproty.setVisible(False)
+            self.property_window_status =False
+        else:
+            self.ui.dockWidget_preproty.setVisible(True)
+            self.property_window_status = True
 
         ##### Run Mune All Action
     def compile_action(self):
