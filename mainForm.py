@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'C:\Users\vinit\PycharmProjects\Ezapiya-IDE\mainForm.ui'
+# Form implementation generated from reading ui file 'D:\python_IDE_test\EzapiyaIDE\mainForm.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #
@@ -21,6 +21,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.centralwidget)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
+        self.tabWidget.setStyleSheet("background-color: rgb(94, 94, 94);")
         self.tabWidget.setTabsClosable(True)
         self.tabWidget.setObjectName("tabWidget")
         self.tab = QtWidgets.QWidget()
@@ -200,6 +201,7 @@ class Ui_MainWindow(object):
 "background : darkgreen;\n"
 "}\n"
 "")
+        self.dockWidget_tools.setAllowedAreas(QtCore.Qt.LeftDockWidgetArea|QtCore.Qt.RightDockWidgetArea)
         self.dockWidget_tools.setObjectName("dockWidget_tools")
         self.dockWidgetContents_4 = QtWidgets.QWidget()
         self.dockWidgetContents_4.setObjectName("dockWidgetContents_4")
@@ -223,6 +225,7 @@ class Ui_MainWindow(object):
 "background : darkgreen;\n"
 "}\n"
 "")
+        self.dockWidget_project.setAllowedAreas(QtCore.Qt.LeftDockWidgetArea|QtCore.Qt.RightDockWidgetArea)
         self.dockWidget_project.setObjectName("dockWidget_project")
         self.dockWidgetContents_5 = QtWidgets.QWidget()
         self.dockWidgetContents_5.setObjectName("dockWidgetContents_5")
@@ -246,6 +249,7 @@ class Ui_MainWindow(object):
 "background : darkgreen;\n"
 "}\n"
 "")
+        self.dockWidget_preproty.setAllowedAreas(QtCore.Qt.LeftDockWidgetArea|QtCore.Qt.RightDockWidgetArea)
         self.dockWidget_preproty.setObjectName("dockWidget_preproty")
         self.dockWidgetContents_6 = QtWidgets.QWidget()
         self.dockWidgetContents_6.setObjectName("dockWidgetContents_6")
@@ -540,6 +544,14 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.actionProparty_Window.setFont(font)
         self.actionProparty_Window.setObjectName("actionProparty_Window")
+        self.actionSelect_All = QtWidgets.QAction(MainWindow)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(12)
+        font.setBold(True)
+        font.setWeight(75)
+        self.actionSelect_All.setFont(font)
+        self.actionSelect_All.setObjectName("actionSelect_All")
         self.menuFile.addAction(self.actionNew)
         self.menuFile.addSeparator()
         self.menuFile.addAction(self.actionOpen)
@@ -553,6 +565,8 @@ class Ui_MainWindow(object):
         self.menuEdit.addAction(self.actionCut)
         self.menuEdit.addAction(self.actionCopy)
         self.menuEdit.addAction(self.actionPaste)
+        self.menuEdit.addSeparator()
+        self.menuEdit.addAction(self.actionSelect_All)
         self.menuEdit.addSeparator()
         self.menuEdit.addAction(self.actionUndo)
         self.menuEdit.addAction(self.actionRedo)
@@ -679,4 +693,6 @@ class Ui_MainWindow(object):
         self.actionWatch_Window.setText(_translate("MainWindow", "Tools Box"))
         self.actionProject_Windows.setText(_translate("MainWindow", "Project Windows"))
         self.actionProparty_Window.setText(_translate("MainWindow", "Property Window"))
+        self.actionSelect_All.setText(_translate("MainWindow", "Select All"))
+        self.actionSelect_All.setShortcut(_translate("MainWindow", "Ctrl+A"))
 

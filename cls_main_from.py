@@ -8,28 +8,32 @@ import icon_qrc
 class cls_main_from(QtWidgets.QMainWindow):
     def __init__(self):
         super(cls_main_from, self).__init__()
-
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.ui.dockWidget_message.setFloating(False)
         self.ui.tabWidget.setTabsClosable(True)
         self.ui.tabWidget.removeTab(0)
         self.ui.tabWidget.removeTab(0)
+        self.tabCount = 2
         #self.ui.tabWidget.tabCloseRequested.connect(self.closeActiveTab)
         self.ui.tabWidget.tabCloseRequested.connect(self.closeTab)
         self.editor = SimplePythonEditor()
-
         self.ui.tabWidget.addTab(self.editor, 'New File 1')
         self.ui.actionNew.triggered.connect(self.newfile_action)
         self.ui.actionClose_File.triggered.connect(self.closeTab)
         self.ui.actionOpen.triggered.connect(self.openfile_action)
         self.ui.actionSave_File.triggered.connect(self.savefile_actoin)
+            ##### Edit mune All Action #####
+        self.ui.actionCut.triggered.connect(self.cut_action)
+        self.ui.actionCopy.triggered.connect(self.copy_action)
         self.ui.actionPaste.triggered.connect(self.paste_action)
-        self.tabCount = 2
-    def paste_action(self):
-        i= self.getActiveTabIndex()
-        xx = self.ui.tabWidget.widget(i)
-        xx.paste()
+        self.ui.actionSelect_All.triggered.connect(self.select_all_action)
+        self.ui.actionUndo.triggered.connect(self.undo_action)
+        self.ui.actionRedo.triggered.connect(self.redo_action)
+        self.ui.actionFind.triggered.connect(self.find_actio)
+        self.ui.actionReplace.triggered.connect(self.replace_action)
+        self.ui.actionGogo.triggered.connect(self.goto_action)
+
     def closeTab (self, currentIndex):
         #currentqwidget = self.ui.tabWidget(currentIndex)
         #currentqwidget.deleteLater()
@@ -44,9 +48,6 @@ class cls_main_from(QtWidgets.QMainWindow):
         #self.ui.tabWidget.removeTab(self.ui.tabWidget.currentIndex())
         self.ui.tabWidget.setWindowTitle("dsfsdfdsfds")
         self.ui.tabWidget.setTabText(self.ui.tabWidget.currentIndex(),tital)
-
-
-
     def newfile_action(self):
         tfileName='New File'+str(self.tabCount)
         self.editor = SimplePythonEditor()
@@ -54,9 +55,7 @@ class cls_main_from(QtWidgets.QMainWindow):
         self.editor.setFullFileNmae(tfileName)
         self.ui.tabWidget.addTab(self.editor, tfileName)
         self.tabCount = self.tabCount + 1
-
         #self.ui.tabWidget.currentWidget()
-
     def getActiveTabIndex(self):
         yy=self.ui.tabWidget.currentWidget()
         for i in range(0,self.ui.tabWidget.count()):
@@ -67,7 +66,6 @@ class cls_main_from(QtWidgets.QMainWindow):
         return i
     def openfile_action(self):
         ne= SimplePythonEditor()
-
         #self.ne.setTabID(self.TabId)
         #self.ne.TabID=self.TabId
         fileName = QFileDialog.getOpenFileName()
@@ -89,14 +87,38 @@ class cls_main_from(QtWidgets.QMainWindow):
             self.ui.tabWidget.addTab(ne, fileName)
             self.tabCount = self.tabCount + 1
             self.ui.tabWidget.setCurrentIndex(self.ui.tabWidget.count()-1)
-
-
-
-
-
     def savefile_actoin(self):
         fileTital=self.editor.saveFile()
         tfileName = fileTital
         tfileName = tfileName.split('/')
         fileName = tfileName[len(tfileName) - 1]
         self.changeTitalofActiveTab(fileName)
+
+        ###Edit Mune All Action
+    def cut_action(self):
+        i = self.getActiveTabIndex()
+        xx = self.ui.tabWidget.widget(i)
+        xx.cut()
+    def copy_action(self):
+        i = self.getActiveTabIndex()
+        xx = self.ui.tabWidget.widget(i)
+        xx.copy()
+
+
+    def paste_action(self):
+        i = self.getActiveTabIndex()
+        xx = self.ui.tabWidget.widget(i)
+        xx.paste()
+    def select_all_action(self):
+       print("select_all")
+
+    def undo_action(self):
+        print("undo")
+    def redo_action(self):
+        print("redo")
+    def find_actio(self):
+        print("find")
+    def replace_action(self):
+        print("replace")
+    def goto_action(self):
+        print("goto")
