@@ -130,7 +130,6 @@ class cls_main_from(QtWidgets.QMainWindow):
         xx = self.ui.tabWidget.widget(i)
         xx.copy()
 
-
     def paste_action(self):
         i = self.getActiveTabIndex()
         xx = self.ui.tabWidget.widget(i)
