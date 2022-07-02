@@ -315,7 +315,6 @@ font: 75 16pt &quot;Calibri&quot;;</string>
     <property name="title">
      <string>Setting</string>
     </property>
-    <addaction name="actionUndo"/>
    </widget>
    <widget class="QMenu" name="menuAbout_Us">
     <property name="title">
@@ -511,7 +510,7 @@ background : darkgreen;
    <attribute name="dockWidgetArea">
     <number>8</number>
    </attribute>
-   <widget class="QWidget" name="dockWidgetContents_2">
+   <widget class="QWidget" name="dockWidgetContents_message">
     <layout class="QVBoxLayout" name="verticalLayout"/>
    </widget>
   </widget>
@@ -547,7 +546,7 @@ background : darkgreen;
    <attribute name="dockWidgetArea">
     <number>1</number>
    </attribute>
-   <widget class="QWidget" name="dockWidgetContents_4">
+   <widget class="QWidget" name="dockWidgetContents_tools">
     <layout class="QVBoxLayout" name="verticalLayout_2"/>
    </widget>
   </widget>
@@ -583,7 +582,7 @@ background : darkgreen;
    <attribute name="dockWidgetArea">
     <number>1</number>
    </attribute>
-   <widget class="QWidget" name="dockWidgetContents_5">
+   <widget class="QWidget" name="dockWidgetContents_project">
     <layout class="QVBoxLayout" name="verticalLayout_3"/>
    </widget>
   </widget>
@@ -619,7 +618,7 @@ background : darkgreen;
    <attribute name="dockWidgetArea">
     <number>1</number>
    </attribute>
-   <widget class="QWidget" name="dockWidgetContents_6">
+   <widget class="QWidget" name="dockWidgetContents_property">
     <layout class="QVBoxLayout" name="verticalLayout_4"/>
    </widget>
   </widget>

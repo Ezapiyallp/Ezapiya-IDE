@@ -22,6 +22,7 @@ class cls_main_from(QtWidgets.QMainWindow):
             #### File Menu all action
         self.ui.actionNew.triggered.connect(self.newfile_action)
         self.ui.actionOpen.triggered.connect(self.openfile_action)
+        self.ui.actionOpen_Folder.triggered.connect(self.open_folder_action)
         self.ui.actionSave_File.triggered.connect(self.savefile_actoin)
         self.ui.actionSave_As.triggered.connect(self.save_as_action)
         self.ui.actionClose_File.triggered.connect(self.closeTab)
@@ -108,6 +109,9 @@ class cls_main_from(QtWidgets.QMainWindow):
             self.ui.tabWidget.addTab(ne, fileName)
             self.tabCount = self.tabCount + 1
             self.ui.tabWidget.setCurrentIndex(self.ui.tabWidget.count()-1)
+
+    def open_folder_action(self):
+        pass
     def savefile_actoin(self):
         fileTital=self.editor.saveFile()
         tfileName = fileTital
@@ -150,7 +154,7 @@ class cls_main_from(QtWidgets.QMainWindow):
 
         ##### View Mune All Action
     def message_window_action(self):
-        pass
+        self.ui.dockWidget_message.setVisible(False)
     def tool_box_action(self):
         pass
     def project_window_action(self):
