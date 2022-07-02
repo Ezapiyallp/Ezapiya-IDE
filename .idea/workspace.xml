@@ -4,6 +4,7 @@
     <list default="true" id="f4f90978-62e2-4ff4-97de-3e29be78eb33" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cls_main_from.py" beforeDir="false" afterPath="$PROJECT_DIR$/cls_main_from.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mainForm.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainForm.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mainForm.ui" beforeDir="false" afterPath="$PROJECT_DIR$/mainForm.ui" afterDir="false" />
     </list>
@@ -186,7 +187,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656777099768</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="edit cut copy paste done">
+      <created>1656778081795</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1656778081795</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -212,6 +220,7 @@
     <MESSAGE value="open save 1" />
     <MESSAGE value="open" />
     <MESSAGE value="on tushar pc" />
-    <option name="LAST_COMMIT_MESSAGE" value="on tushar pc" />
+    <MESSAGE value="edit cut copy paste done" />
+    <option name="LAST_COMMIT_MESSAGE" value="edit cut copy paste done" />
   </component>
 </project>

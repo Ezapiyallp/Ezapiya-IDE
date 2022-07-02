@@ -332,7 +332,7 @@ font: 75 16pt &quot;Calibri&quot;;</string>
      <string>View</string>
     </property>
     <addaction name="actionMessage_Window"/>
-    <addaction name="actionWatch_Window"/>
+    <addaction name="actiontool_Window"/>
     <addaction name="actionProject_Windows"/>
     <addaction name="actionProparty_Window"/>
    </widget>
@@ -1109,7 +1109,7 @@ background : darkgreen;
     </font>
    </property>
   </action>
-  <action name="actionWatch_Window">
+  <action name="actiontool_Window">
    <property name="text">
     <string>Tools Box</string>
    </property>
