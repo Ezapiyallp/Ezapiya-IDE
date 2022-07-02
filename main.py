@@ -3,6 +3,7 @@ from cls_main_from import cls_main_from
 import sys
 app = QtWidgets.QApplication([])
 main_f = cls_main_from()
+print("hi")
 main_f.setWindowState(QtCore.Qt.WindowMaximized)
 main_f.show()
 main_f.setWindowTitle("Ezapiya-IDE")
