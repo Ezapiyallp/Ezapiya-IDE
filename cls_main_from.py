@@ -186,7 +186,7 @@ class cls_main_from(QtWidgets.QMainWindow):
             else:
                 self.ui.dockWidget_message.setVisible(True)
                 self.message_window_status = True
-            self.ui.actionMessage_Window.setIconVisibleInMenu(True)
+                self.ui.actionMessage_Window.setIconVisibleInMenu(True)
 
     def tool_box_action(self):
         pass
