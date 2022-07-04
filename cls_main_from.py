@@ -59,6 +59,10 @@ class cls_main_from(QtWidgets.QMainWindow):
         self.ui.actionEnd_Debug.triggered.connect(self.end_debug_action)
         self.ui.actionBreakpoint.triggered.connect(self.breackpoint_action)
         self.ui.actionWatch.triggered.connect(self.watch_action)
+
+        self.ui.dockWidget_tools.setVisible(False)
+        self.ui.dockWidget_project.setVisible(False)
+        self.ui.dockWidget_preproty.setVisible(False)
     def closeTab (self, currentIndex):
         self.ui.tabWidget.removeTab(currentIndex)
         self.tabCount = self.tabCount - 1
@@ -185,34 +189,37 @@ class cls_main_from(QtWidgets.QMainWindow):
             self.ui.actionMessage_Window.setIconVisibleInMenu(True)
 
     def tool_box_action(self):
-        if self.tool_box_status == True:
-            self.ui.dockWidget_tools.setVisible(False)
-            self.tool_box_status = False
-            self.ui.actiontool_Window.setIconVisibleInMenu(False)
-        else:
-            self.ui.dockWidget_tools.setVisible(True)
-            self.tool_box_status = True
-            self.ui.actiontool_Window.setIconVisibleInMenu(True)
+        pass
+        # if self.tool_box_status == True:
+        #     self.ui.dockWidget_tools.setVisible(False)
+        #     self.tool_box_status = False
+        #     self.ui.actiontool_Window.setIconVisibleInMenu(False)
+        # else:
+        #     self.ui.dockWidget_tools.setVisible(True)
+        #     self.tool_box_status = True
+        #     self.ui.actiontool_Window.setIconVisibleInMenu(True)
 
     def project_window_action(self):
-        if self.project_window_status == True:
-            self.ui.dockWidget_project.setVisible(False)
-            self.project_window_status =False
-            self.ui.actionProject_Windows.setIconVisibleInMenu(False)
-        else:
-            self.ui.dockWidget_project.setVisible(True)
-            self.project_window_status = True
-            self.ui.actionProject_Windows.setIconVisibleInMenu(True)
+        pass
+        # if self.project_window_status == True:
+        #     self.ui.dockWidget_project.setVisible(False)
+        #     self.project_window_status =False
+        #     self.ui.actionProject_Windows.setIconVisibleInMenu(False)
+        # else:
+        #     self.ui.dockWidget_project.setVisible(True)
+        #     self.project_window_status = True
+        #     self.ui.actionProject_Windows.setIconVisibleInMenu(True)
 
     def property_window_action(self):
-        if self.project_window_status == True:
-            self.ui.dockWidget_preproty.setVisible(False)
-            self.property_window_status = False
-            self.ui.actionProparty_Window.setIconVisibleInMenu(False)
-        else:
-            self.ui.dockWidget_preproty.setVisible(True)
-            self.property_window_status = True
-            self.ui.actionProparty_Window.setIconVisibleInMenu(True)
+        pass
+        # if self.project_window_status == True:
+        #     self.ui.dockWidget_preproty.setVisible(False)
+        #     self.property_window_status = False
+        #     self.ui.actionProparty_Window.setIconVisibleInMenu(False)
+        # else:
+        #     self.ui.dockWidget_preproty.setVisible(True)
+        #     self.property_window_status = True
+        #     self.ui.actionProparty_Window.setIconVisibleInMenu(True)
 
         ##### Run Mune All Action
     def compile_action(self):

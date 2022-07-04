@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4f90978-62e2-4ff4-97de-3e29be78eb33" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/SimplePythonEditor.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimplePythonEditor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cls_main_from.py" beforeDir="false" afterPath="$PROJECT_DIR$/cls_main_from.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -183,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656934688106</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="save as Done">
+      <created>1656935114652</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1656935114653</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
