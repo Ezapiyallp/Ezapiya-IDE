@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4f90978-62e2-4ff4-97de-3e29be78eb33" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Ezapiya-IDE.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Ezapiya-IDE.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cls_main_from.py" beforeDir="false" afterPath="$PROJECT_DIR$/cls_main_from.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/icon_qrc.py" beforeDir="false" afterPath="$PROJECT_DIR$/icon_qrc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/icon_qrc.qrc" beforeDir="false" afterPath="$PROJECT_DIR$/icon_qrc.qrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainForm.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainForm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mainForm.ui" beforeDir="false" afterPath="$PROJECT_DIR$/mainForm.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'D:\python_IDE_test\EzapiyaIDE\mainForm.ui'
+# Form implementation generated from reading ui file 'D:\python_test\Ezapiya-IDE\mainForm.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #
@@ -513,6 +513,9 @@ class Ui_MainWindow(object):
         self.actionWatch.setFont(font)
         self.actionWatch.setObjectName("actionWatch")
         self.actionMessage_Window = QtWidgets.QAction(MainWindow)
+        icon18 = QtGui.QIcon()
+        icon18.addPixmap(QtGui.QPixmap(":/icon/icon/icon2.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.actionMessage_Window.setIcon(icon18)
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(12)
@@ -521,6 +524,7 @@ class Ui_MainWindow(object):
         self.actionMessage_Window.setFont(font)
         self.actionMessage_Window.setObjectName("actionMessage_Window")
         self.actiontool_Window = QtWidgets.QAction(MainWindow)
+        self.actiontool_Window.setIcon(icon18)
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(12)
@@ -529,6 +533,7 @@ class Ui_MainWindow(object):
         self.actiontool_Window.setFont(font)
         self.actiontool_Window.setObjectName("actiontool_Window")
         self.actionProject_Windows = QtWidgets.QAction(MainWindow)
+        self.actionProject_Windows.setIcon(icon18)
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(12)
@@ -537,6 +542,7 @@ class Ui_MainWindow(object):
         self.actionProject_Windows.setFont(font)
         self.actionProject_Windows.setObjectName("actionProject_Windows")
         self.actionProparty_Window = QtWidgets.QAction(MainWindow)
+        self.actionProparty_Window.setIcon(icon18)
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(12)

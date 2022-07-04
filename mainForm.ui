@@ -1096,6 +1096,10 @@ background : darkgreen;
    </property>
   </action>
   <action name="actionMessage_Window">
+   <property name="icon">
+    <iconset resource="icon_qrc.qrc">
+     <normaloff>:/icon/icon/icon2.png</normaloff>:/icon/icon/icon2.png</iconset>
+   </property>
    <property name="text">
     <string>Message Window</string>
    </property>
@@ -1109,6 +1113,10 @@ background : darkgreen;
    </property>
   </action>
   <action name="actiontool_Window">
+   <property name="icon">
+    <iconset resource="icon_qrc.qrc">
+     <normaloff>:/icon/icon/icon2.png</normaloff>:/icon/icon/icon2.png</iconset>
+   </property>
    <property name="text">
     <string>Tools Box</string>
    </property>
@@ -1122,6 +1130,10 @@ background : darkgreen;
    </property>
   </action>
   <action name="actionProject_Windows">
+   <property name="icon">
+    <iconset resource="icon_qrc.qrc">
+     <normaloff>:/icon/icon/icon2.png</normaloff>:/icon/icon/icon2.png</iconset>
+   </property>
    <property name="text">
     <string>Project Windows</string>
    </property>
@@ -1135,6 +1147,10 @@ background : darkgreen;
    </property>
   </action>
   <action name="actionProparty_Window">
+   <property name="icon">
+    <iconset resource="icon_qrc.qrc">
+     <normaloff>:/icon/icon/icon2.png</normaloff>:/icon/icon/icon2.png</iconset>
+   </property>
    <property name="text">
     <string>Property Window</string>
    </property>

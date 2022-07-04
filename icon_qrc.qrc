@@ -1,5 +1,6 @@
 <RCC>
   <qresource prefix="icon">
+    <file>icon/icon2.png</file>
     <file>icon/adb.png</file>
     <file>icon/close.png</file>
     <file>icon/compail.gif</file>
