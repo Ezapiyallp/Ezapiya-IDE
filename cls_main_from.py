@@ -59,10 +59,7 @@ class cls_main_from(QtWidgets.QMainWindow):
         self.ui.actionEnd_Debug.triggered.connect(self.end_debug_action)
         self.ui.actionBreakpoint.triggered.connect(self.breackpoint_action)
         self.ui.actionWatch.triggered.connect(self.watch_action)
-
     def closeTab (self, currentIndex):
-        #currentqwidget = self.ui.tabWidget(currentIndex)
-        #currentqwidget.deleteLater()
         self.ui.tabWidget.removeTab(currentIndex)
         self.tabCount = self.tabCount - 1
         if currentIndex==0 and self.tabCount==-1 :
@@ -71,9 +68,9 @@ class cls_main_from(QtWidgets.QMainWindow):
             self.tabCount = self.tabCount + 1
 
     def changeTitalofActiveTab(self,tital):
-        #self.ui.tabWidget.removeTab(self.ui.tabWidget.currentIndex())
         self.ui.tabWidget.setWindowTitle("dsfsdfdsfds")
         self.ui.tabWidget.setTabText(self.ui.tabWidget.currentIndex(),tital)
+
     def newfile_action(self):
         tfileName='New File'+str(self.tabCount)
         self.editor = SimplePythonEditor()
@@ -81,28 +78,26 @@ class cls_main_from(QtWidgets.QMainWindow):
         self.editor.setFullFileNmae(tfileName)
         self.ui.tabWidget.addTab(self.editor, tfileName)
         self.tabCount = self.tabCount + 1
-        #self.ui.tabWidget.currentWidget()
+
     def getActiveTabIndex(self):
-        yy=self.ui.tabWidget.currentWidget()
+        yy = self.ui.tabWidget.currentWidget()
         for i in range(0,self.ui.tabWidget.count()):
             xx = self.ui.tabWidget.widget(i)
-            if yy.getFullFileName()==xx.getFullFileName():
+            if yy.getFullFileName() == xx.getFullFileName():
                 break
         print(i)
         return i
     def openfile_action(self):
-        ne= SimplePythonEditor()
-        #self.ne.setTabID(self.TabId)
-        #self.ne.TabID=self.TabId
+        ne = SimplePythonEditor()
+
         fileName = QFileDialog.getOpenFileName()
         fullFileName = fileName[0]
         status=0
-        for i in range(0,self.ui.tabWidget.count()):
+        for i in range(0, self.ui.tabWidget.count()):
             xx = self.ui.tabWidget.widget(i)
-            if fullFileName==xx.getFullFileName():
+            if fullFileName == xx.getFullFileName():
                 status = 1
                 break
-
         if status == 1:
             self.ui.tabWidget.setCurrentIndex(i)
         else:
@@ -116,11 +111,12 @@ class cls_main_from(QtWidgets.QMainWindow):
 
     def open_folder_action(self):
         pass
+
     def savefile_actoin(self):
         i = self.getActiveTabIndex()
         xx = self.ui.tabWidget.widget(i)
-        status=xx.getSaveStatus()
-        if status=="Yes":
+        status = xx.getSaveStatus()
+        if status == "Yes":
             f = open(xx.getFullFileName, "w")
             f.write(xx.text())
         else:
@@ -128,8 +124,8 @@ class cls_main_from(QtWidgets.QMainWindow):
             xx.saveFile(fileName)
             tfileName = fileName[0].split('/')
             fileName = tfileName[len(tfileName) - 1]
-            #self.ui.tabWidget.setTabText(i, fileName)
             self.ui.tabWidget.setTabText(self.getActiveTabIndex(), fileName)
+
     def save_as_action(self):
         i = self.getActiveTabIndex()
         xx = self.ui.tabWidget.widget(i)
@@ -138,15 +134,16 @@ class cls_main_from(QtWidgets.QMainWindow):
         tfileName = fileName[0].split('/')
         fileName = tfileName[len(tfileName) - 1]
         self.ui.tabWidget.setTabText(self.getActiveTabIndex(), fileName)
+
     def exit_action(self):
         sys.exit()
-
 
         ###Edit Mune All Action
     def cut_action(self):
         i = self.getActiveTabIndex()
         xx = self.ui.tabWidget.widget(i)
         xx.cut()
+
     def copy_action(self):
         i = self.getActiveTabIndex()
         xx = self.ui.tabWidget.widget(i)
@@ -156,19 +153,25 @@ class cls_main_from(QtWidgets.QMainWindow):
         i = self.getActiveTabIndex()
         xx = self.ui.tabWidget.widget(i)
         xx.paste()
+
     def select_all_action(self):
        print("select_all")
 
     def undo_action(self):
         print("undo")
+
     def redo_action(self):
         print("redo")
+
     def find_actio(self):
         print("find")
+
     def replace_action(self):
         print("replace")
+
     def goto_action(self):
         print("goto")
+
 
         ##### View Mune All Action
     def message_window_action(self):
@@ -180,6 +183,7 @@ class cls_main_from(QtWidgets.QMainWindow):
                 self.ui.dockWidget_message.setVisible(True)
                 self.message_window_status = True
             self.ui.actionMessage_Window.setIconVisibleInMenu(True)
+
     def tool_box_action(self):
         if self.tool_box_status == True:
             self.ui.dockWidget_tools.setVisible(False)
@@ -189,6 +193,7 @@ class cls_main_from(QtWidgets.QMainWindow):
             self.ui.dockWidget_tools.setVisible(True)
             self.tool_box_status = True
             self.ui.actiontool_Window.setIconVisibleInMenu(True)
+
     def project_window_action(self):
         if self.project_window_status == True:
             self.ui.dockWidget_project.setVisible(False)
@@ -198,6 +203,7 @@ class cls_main_from(QtWidgets.QMainWindow):
             self.ui.dockWidget_project.setVisible(True)
             self.project_window_status = True
             self.ui.actionProject_Windows.setIconVisibleInMenu(True)
+
     def property_window_action(self):
         if self.project_window_status == True:
             self.ui.dockWidget_preproty.setVisible(False)
@@ -211,15 +217,12 @@ class cls_main_from(QtWidgets.QMainWindow):
         ##### Run Mune All Action
     def compile_action(self):
         pass
-        #print("compile")
+
     def run_action(self):
         pass
-        #print("run")
+
     def compile_and_run_action(self):
         pass
-        #print("Run and Compile")
-
-
 
         ###### Debug Mune All Action
 
