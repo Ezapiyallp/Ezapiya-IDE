@@ -1,11 +1,4 @@
-#-------------------------------------------------------------------------
-# qsci_simple_pythoneditor.pyw
-#
-# QScintilla sample with PyQt
-#
-# Eli Bendersky (eliben@gmail.com)
-# This code is in the public domain
-#-------------------------------------------------------------------------
+
 import os
 import sys
 
@@ -20,19 +13,13 @@ import keyword
 
 class SimplePythonEditor(QsciScintilla):
     ARROW_MARKER_NUM = 8
-
     def __init__(self, parent=None):
         super(SimplePythonEditor, self).__init__(parent)
-
-        #fileHanding
         self.fullFileName=""
         self.fileName=""
         self.fileExtention=""
         self.saveStatus="No"
         self.TabID=0
-
-        # Set the default font
-
         font = QFont()
         font.setFamily('Courier')
         font.setFixedPitch(True)
@@ -93,8 +80,8 @@ class SimplePythonEditor(QsciScintilla):
 
         self.setCaretForegroundColor(QColor("#FFFFFF"))
        # self.setCaretLineBackgroundColor(QColor("#898888"))
-
-
+        my_list = ["."]
+        self.setAutoCompletionWordSeparators(my_list)
 
         self.setLexer(lexer)
 
@@ -151,24 +138,25 @@ class SimplePythonEditor(QsciScintilla):
         self.saveStatus = "Yes"
         return self.fullFileName
 
-    def saveFile(self):
-        if self.saveStatus == "Yes":
-            f = open(self.fullFileName, "w")
-            f.write(self.text())
-        else:
-            fileName = QFileDialog.getSaveFileName()
-            # print(fileName[0])
-            self.fullFileName = fileName[0]
-            tfileName = fileName[0]
-            tfileName = tfileName.split('/')
-            self.fileName = tfileName[len(tfileName) - 1]
-            print(self.fileName)
-            ext = self.fileName.split('.')
-            self.fileExtention = ext[len(ext) - 1]
-            f = open(self.fullFileName, "w")
-            f.write(self.text())
+    def getSaveStatus(self):
+        return self.saveStatus
+    def saveFile(self,fileName):
+        #fileName = QFileDialog.getSaveFileName()
+        # print(fileName[0])
+        self.fullFileName = fileName[0]
+        tfileName = fileName[0]
+        tfileName = tfileName.split('/')
+        self.fileName = tfileName[len(tfileName) - 1]
+        print(self.fileName)
+        ext = self.fileName.split('.')
+        self.fileExtention = ext[len(ext) - 1]
+        f = open(self.fullFileName, "w")
+        f.write(self.text())
         self.saveStatus = "Yes"
-        return self.fullFileName
+
+
+
+
     def getFullFileName(self):
         return self.fullFileName
 

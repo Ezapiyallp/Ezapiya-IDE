@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4f90978-62e2-4ff4-97de-3e29be78eb33" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Ezapiya-IDE.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Ezapiya-IDE.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SimplePythonEditor.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimplePythonEditor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cls_main_from.py" beforeDir="false" afterPath="$PROJECT_DIR$/cls_main_from.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/icon_qrc.py" beforeDir="false" afterPath="$PROJECT_DIR$/icon_qrc.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/icon_qrc.qrc" beforeDir="false" afterPath="$PROJECT_DIR$/icon_qrc.qrc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainForm.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainForm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainForm.ui" beforeDir="false" afterPath="$PROJECT_DIR$/mainForm.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +34,6 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/icon" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -183,42 +177,7 @@
       <option name="project" value="LOCAL" />
       <updated>1656517516175</updated>
     </task>
-    <task id="LOCAL-00016" summary="on tushar pc">
-      <created>1656777099768</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1656777099768</updated>
-    </task>
-    <task id="LOCAL-00017" summary="edit cut copy paste done">
-      <created>1656778081795</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1656778081795</updated>
-    </task>
-    <task id="LOCAL-00018" summary="All mune connection done">
-      <created>1656779708908</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1656779708908</updated>
-    </task>
-    <task id="LOCAL-00019" summary="All mune connection done">
-      <created>1656779729702</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1656779729702</updated>
-    </task>
-    <task id="LOCAL-00020" summary=" done">
-      <created>1656780831058</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1656780831058</updated>
-    </task>
-    <option name="localTasksCounter" value="21" />
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -243,10 +202,27 @@
     <MESSAGE value="save open" />
     <MESSAGE value="open save 1" />
     <MESSAGE value="open" />
-    <MESSAGE value="on tushar pc" />
-    <MESSAGE value="edit cut copy paste done" />
-    <MESSAGE value="All mune connection done" />
-    <MESSAGE value=" done" />
-    <option name="LAST_COMMIT_MESSAGE" value=" done" />
+    <option name="LAST_COMMIT_MESSAGE" value="open" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/cls_main_from.py</url>
+          <line>79</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/cls_main_from.py</url>
+          <line>96</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/cls_main_from.py</url>
+          <line>129</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

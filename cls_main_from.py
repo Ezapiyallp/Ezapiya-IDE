@@ -21,8 +21,6 @@ class cls_main_from(QtWidgets.QMainWindow):
         self.ui.tabWidget.removeTab(0)
         self.ui.tabWidget.removeTab(0)
         self.tabCount = 2
-
-        #self.ui.tabWidget.tabCloseRequested.connect(self.closeActiveTab)
         self.ui.tabWidget.tabCloseRequested.connect(self.closeTab)
         self.editor = SimplePythonEditor()
         self.ui.tabWidget.addTab(self.editor, 'New File 1')
@@ -34,7 +32,6 @@ class cls_main_from(QtWidgets.QMainWindow):
         self.ui.actionSave_As.triggered.connect(self.save_as_action)
         self.ui.actionClose_File.triggered.connect(self.closeTab)
         self.ui.actionExit.triggered.connect(self.exit_action)
-
             ##### Edit mune All Action #####
         self.ui.actionCut.triggered.connect(self.cut_action)
         self.ui.actionCopy.triggered.connect(self.copy_action)
@@ -120,13 +117,27 @@ class cls_main_from(QtWidgets.QMainWindow):
     def open_folder_action(self):
         pass
     def savefile_actoin(self):
-        fileTital=self.editor.saveFile()
-        tfileName = fileTital
-        tfileName = tfileName.split('/')
-        fileName = tfileName[len(tfileName) - 1]
-        self.changeTitalofActiveTab(fileName)
+        i = self.getActiveTabIndex()
+        xx = self.ui.tabWidget.widget(i)
+        status=xx.getSaveStatus()
+        if status=="Yes":
+            f = open(xx.getFullFileName, "w")
+            f.write(xx.text())
+        else:
+            fileName = QFileDialog.getSaveFileName()
+            xx.saveFile(fileName)
+            tfileName = fileName[0].split('/')
+            fileName = tfileName[len(tfileName) - 1]
+            #self.ui.tabWidget.setTabText(i, fileName)
+            self.ui.tabWidget.setTabText(self.getActiveTabIndex(), fileName)
     def save_as_action(self):
-        pass
+        i = self.getActiveTabIndex()
+        xx = self.ui.tabWidget.widget(i)
+        fileName = QFileDialog.getSaveFileName()
+        xx.saveFile(fileName)
+        tfileName = fileName[0].split('/')
+        fileName = tfileName[len(tfileName) - 1]
+        self.ui.tabWidget.setTabText(self.getActiveTabIndex(), fileName)
     def exit_action(self):
         sys.exit()
 
@@ -190,7 +201,7 @@ class cls_main_from(QtWidgets.QMainWindow):
     def property_window_action(self):
         if self.project_window_status == True:
             self.ui.dockWidget_preproty.setVisible(False)
-            self.property_window_status =False
+            self.property_window_status = False
             self.ui.actionProparty_Window.setIconVisibleInMenu(False)
         else:
             self.ui.dockWidget_preproty.setVisible(True)
