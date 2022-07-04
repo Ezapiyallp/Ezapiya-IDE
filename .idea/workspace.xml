@@ -212,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656944912944</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="add Colorcode">
+      <created>1656948781853</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1656948781853</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -238,7 +245,8 @@
     <MESSAGE value="open save 1" />
     <MESSAGE value="open" />
     <MESSAGE value="save as Done" />
-    <option name="LAST_COMMIT_MESSAGE" value="save as Done" />
+    <MESSAGE value="add Colorcode" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Colorcode" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
