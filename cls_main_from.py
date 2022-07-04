@@ -121,8 +121,13 @@ class cls_main_from(QtWidgets.QMainWindow):
         xx = self.ui.tabWidget.widget(i)
         status = xx.getSaveStatus()
         if status == "Yes":
-            f = open(xx.getFullFileName, "w")
-            f.write(xx.text())
+            ff=xx.getFullFileName()
+            try:
+                f = open(xx.getFullFileName(), "w")
+                f.write(xx.text())
+                f.close()
+            except Exception as e:
+                print(e)
         else:
             fileName = QFileDialog.getSaveFileName()
             xx.saveFile(fileName)

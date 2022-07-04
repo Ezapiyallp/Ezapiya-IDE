@@ -87,7 +87,9 @@ class SimplePythonEditor(QsciScintilla):
         self.fileName = tfileName[len(tfileName)-1]
         ext = self.fileName.split('.')
         self.fileExtention = ext[len(ext)-1]
-        self.setText(open(self.fullFileName).read())
+        f = open(self.fullFileName,"r")
+        self.setText(f.read())
+        f.close()
         self.saveStatus = "Yes"
         return self.fullFileName
 
@@ -104,6 +106,7 @@ class SimplePythonEditor(QsciScintilla):
         self.fileExtention = ext[len(ext) - 1]
         f = open(self.fullFileName, "w")
         f.write(self.text())
+        f.close()
         self.saveStatus = "Yes"
 
     def getFullFileName(self):
