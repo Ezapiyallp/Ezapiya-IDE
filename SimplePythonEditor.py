@@ -91,6 +91,14 @@ class SimplePythonEditor(QsciScintilla):
             self.setCpplexer()
         if self.fileExtention=="py":
             self.setPythonlexer()
+        if self.fileExtention == "java":
+            self.setJavalexer()
+        if self.fileExtention == "js":
+            self.setJavaScriptlexer()
+        if self.fileExtention == "cs":
+            self.setCSharplexer()
+        if self.fileExtention == "html" or self.fileExtention == "htm":
+            self.setHtmllexe()
 
         return self.fullFileName
 
@@ -114,6 +122,14 @@ class SimplePythonEditor(QsciScintilla):
             self.setCpplexer()
         if self.fileExtention == "py":
             self.setPythonlexer()
+        if self.fileExtention == "java":
+            self.setJavalexer()
+        if self.fileExtention == "js":
+            self.setJavaScriptlexer()
+        if self.fileExtention == "cs":
+            self.setCSharplexer()
+        if self.fileExtention == "html" or self.fileExtention == "htm":
+            self.setHtmllexe()
 
 
     def getFullFileName(self):
@@ -129,7 +145,23 @@ class SimplePythonEditor(QsciScintilla):
         font.setFamily('Courier')
         font.setFixedPitch(True)
         font.setPointSize(16)
-        lexer = QsciLexerCPP(self, False)
+
+        self.setFont(font)
+        self.setMarginsFont(font)
+        self.setPaper(QColor('lightblue'))
+        fontmetrics = QFontMetrics(font)
+        self.setMarginsFont(font)
+        self.setMarginWidth(0, fontmetrics.width("00000") + 6)
+        self.setMarginLineNumbers(0, True)
+        self.setMarginsBackgroundColor(QColor("#232323"))
+        self.setMarginsForegroundColor(QColor("#FFF"))
+        self.setMarginSensitivity(1, True)
+        self.markerDefine(QsciScintilla.RightArrow,self.ARROW_MARKER_NUM)
+        self.setMarkerBackgroundColor(QColor("#ee1111"),self.ARROW_MARKER_NUM)
+        self.setBraceMatching(QsciScintilla.SloppyBraceMatch)
+        self.setCaretLineVisible(False)
+
+        lexer = QsciLexerCPP()
         lexer.setDefaultFont(font)
         lexer.setDefaultPaper(QColor("#3c3c3c"))
         lexer.setDefaultColor(QColor("#f9f9f9"))
@@ -162,8 +194,8 @@ class SimplePythonEditor(QsciScintilla):
         lexer.setColor(QColor("#E1898F"), 26)# TaskMarker = 26
         lexer.setColor(QColor("#E1898F"), 27)# EscapeSequence = 27
         self.setCaretForegroundColor(QColor("#FFFFFF"))
-        my_list = [".", " ", "-", ":", ";"]
-        self.autoCompletionFillups()
+        my_list = [".", " ", "{","}","[","]","(",")", ":", ";"]
+        #self.autoCompletionFillups()
         self.setAutoCompletionWordSeparators(my_list)
         self.setLexer(lexer)
         api = Qsci.QsciAPIs(lexer)
@@ -187,7 +219,22 @@ class SimplePythonEditor(QsciScintilla):
         font.setFamily('Courier')
         font.setFixedPitch(True)
         font.setPointSize(16)
-        lexer = QsciLexerPython(self, False)
+
+        self.setFont(font)
+        self.setMarginsFont(font)
+        self.setPaper(QColor('lightblue'))
+        fontmetrics = QFontMetrics(font)
+        self.setMarginsFont(font)
+        self.setMarginWidth(0, fontmetrics.width("00000") + 6)
+        self.setMarginLineNumbers(0, True)
+        self.setMarginsBackgroundColor(QColor("#232323"))
+        self.setMarginsForegroundColor(QColor("#FFF"))
+        self.setMarginSensitivity(1, True)
+        self.markerDefine(QsciScintilla.RightArrow, self.ARROW_MARKER_NUM)
+        self.setMarkerBackgroundColor(QColor("#ee1111"), self.ARROW_MARKER_NUM)
+        self.setBraceMatching(QsciScintilla.SloppyBraceMatch)
+        self.setCaretLineVisible(False)
+        lexer = QsciLexerPython()
         lexer.setDefaultFont(font)
         lexer.setDefaultPaper(QColor("#3c3c3c"))
         lexer.setDefaultColor(QColor("#f9f9f9"))
@@ -209,7 +256,7 @@ class SimplePythonEditor(QsciScintilla):
         lexer.setColor(QColor("#E1898F"), 15)# Decorator = 15
 
         self.setCaretForegroundColor(QColor("#FFFFFF"))
-        my_list = ["."]
+        my_list = [".", " ", "{","}","[","]","(",")", ":", ";"]
         self.setAutoCompletionWordSeparators(my_list)
         self.setLexer(lexer)
         api = Qsci.QsciAPIs(lexer)
@@ -233,7 +280,22 @@ class SimplePythonEditor(QsciScintilla):
         font.setFamily('Courier')
         font.setFixedPitch(True)
         font.setPointSize(16)
-        lexer = QsciLexerJava(self, False)
+
+        self.setFont(font)
+        self.setMarginsFont(font)
+        self.setPaper(QColor('lightblue'))
+        fontmetrics = QFontMetrics(font)
+        self.setMarginsFont(font)
+        self.setMarginWidth(0, fontmetrics.width("00000") + 6)
+        self.setMarginLineNumbers(0, True)
+        self.setMarginsBackgroundColor(QColor("#232323"))
+        self.setMarginsForegroundColor(QColor("#FFF"))
+        self.setMarginSensitivity(1, True)
+        self.markerDefine(QsciScintilla.RightArrow, self.ARROW_MARKER_NUM)
+        self.setMarkerBackgroundColor(QColor("#ee1111"), self.ARROW_MARKER_NUM)
+        self.setBraceMatching(QsciScintilla.SloppyBraceMatch)
+        self.setCaretLineVisible(False)
+        lexer = QsciLexerJava()
         lexer.setDefaultFont(font)
         lexer.setDefaultPaper(QColor("#3c3c3c"))
         lexer.setDefaultColor(QColor("#f9f9f9"))
@@ -266,7 +328,7 @@ class SimplePythonEditor(QsciScintilla):
         lexer.setColor(QColor("#E1898F"), 26)  # TaskMarker = 26
         lexer.setColor(QColor("#E1898F"), 27)  # EscapeSequence = 27
         self.setCaretForegroundColor(QColor("#FFFFFF"))
-        my_list = ["."]
+        my_list = [".", " ", "{","}","[","]","(",")", ":", ";"]
         self.setAutoCompletionWordSeparators(my_list)
         self.setLexer(lexer)
         api = Qsci.QsciAPIs(lexer)
@@ -290,7 +352,22 @@ class SimplePythonEditor(QsciScintilla):
         font.setFamily('Courier')
         font.setFixedPitch(True)
         font.setPointSize(16)
-        lexer = QsciLexerJavaScript(self, False)
+
+        self.setFont(font)
+        self.setMarginsFont(font)
+        self.setPaper(QColor('lightblue'))
+        fontmetrics = QFontMetrics(font)
+        self.setMarginsFont(font)
+        self.setMarginWidth(0, fontmetrics.width("00000") + 6)
+        self.setMarginLineNumbers(0, True)
+        self.setMarginsBackgroundColor(QColor("#232323"))
+        self.setMarginsForegroundColor(QColor("#FFF"))
+        self.setMarginSensitivity(1, True)
+        self.markerDefine(QsciScintilla.RightArrow, self.ARROW_MARKER_NUM)
+        self.setMarkerBackgroundColor(QColor("#ee1111"), self.ARROW_MARKER_NUM)
+        self.setBraceMatching(QsciScintilla.SloppyBraceMatch)
+        self.setCaretLineVisible(False)
+        lexer = QsciLexerJavaScript()
         lexer.setDefaultFont(font)
         lexer.setDefaultPaper(QColor("#3c3c3c"))
         lexer.setDefaultColor(QColor("#f9f9f9"))
@@ -323,7 +400,7 @@ class SimplePythonEditor(QsciScintilla):
         lexer.setColor(QColor("#E1898F"), 26)  # TaskMarker = 26
         lexer.setColor(QColor("#E1898F"), 27)  # EscapeSequence = 27
         self.setCaretForegroundColor(QColor("#FFFFFF"))
-        my_list = ["."]
+        my_list = [".", " ", "{","}","[","]","(",")", ":", ";"]
         self.setAutoCompletionWordSeparators(my_list)
         self.setLexer(lexer)
         api = Qsci.QsciAPIs(lexer)
@@ -347,7 +424,22 @@ class SimplePythonEditor(QsciScintilla):
         font.setFamily('Courier')
         font.setFixedPitch(True)
         font.setPointSize(16)
-        lexer = QsciLexerCSharp(self, False)
+
+        self.setFont(font)
+        self.setMarginsFont(font)
+        self.setPaper(QColor('lightblue'))
+        fontmetrics = QFontMetrics(font)
+        self.setMarginsFont(font)
+        self.setMarginWidth(0, fontmetrics.width("00000") + 6)
+        self.setMarginLineNumbers(0, True)
+        self.setMarginsBackgroundColor(QColor("#232323"))
+        self.setMarginsForegroundColor(QColor("#FFF"))
+        self.setMarginSensitivity(1, True)
+        self.markerDefine(QsciScintilla.RightArrow, self.ARROW_MARKER_NUM)
+        self.setMarkerBackgroundColor(QColor("#ee1111"), self.ARROW_MARKER_NUM)
+        self.setBraceMatching(QsciScintilla.SloppyBraceMatch)
+        self.setCaretLineVisible(False)
+        lexer = QsciLexerCSharp()
         lexer.setDefaultFont(font)
         lexer.setDefaultPaper(QColor("#3c3c3c"))
         lexer.setDefaultColor(QColor("#f9f9f9"))
@@ -380,7 +472,7 @@ class SimplePythonEditor(QsciScintilla):
         lexer.setColor(QColor("#E1898F"), 26)  # TaskMarker = 26
         lexer.setColor(QColor("#E1898F"), 27)  # EscapeSequence = 27
         self.setCaretForegroundColor(QColor("#FFFFFF"))
-        my_list = [".", " ", "-", ":", ";"]
+        my_list = [".", " ", "{","}","[","]","(",")", ":", ";"]
 
         self.setAutoCompletionWordSeparators(my_list)
         self.setLexer(lexer)
@@ -405,7 +497,22 @@ class SimplePythonEditor(QsciScintilla):
         font.setFamily('Courier')
         font.setFixedPitch(True)
         font.setPointSize(16)
-        lexer = QsciLexerHTML(self, False)
+
+        self.setFont(font)
+        self.setMarginsFont(font)
+        self.setPaper(QColor('lightblue'))
+        fontmetrics = QFontMetrics(font)
+        self.setMarginsFont(font)
+        self.setMarginWidth(0, fontmetrics.width("00000") + 6)
+        self.setMarginLineNumbers(0, True)
+        self.setMarginsBackgroundColor(QColor("#232323"))
+        self.setMarginsForegroundColor(QColor("#FFF"))
+        self.setMarginSensitivity(1, True)
+        self.markerDefine(QsciScintilla.RightArrow, self.ARROW_MARKER_NUM)
+        self.setMarkerBackgroundColor(QColor("#ee1111"), self.ARROW_MARKER_NUM)
+        self.setBraceMatching(QsciScintilla.SloppyBraceMatch)
+        self.setCaretLineVisible(False)
+        lexer = QsciLexerHTML()
         lexer.setDefaultFont(font)
         lexer.setDefaultPaper(QColor("#3c3c3c"))
         lexer.setDefaultColor(QColor("#f9f9f9"))
@@ -521,7 +628,7 @@ class SimplePythonEditor(QsciScintilla):
         lexer.setColor(QColor("#A69C9C"), 127)  # PHPOperator = 127
 
         self.setCaretForegroundColor(QColor("#FFFFFF"))
-        my_list = [".", " ", "-", ":", ";"]
+        my_list = [".", " ", "{","}","[","]","(",")","<",">", ":", ";"]
 
         self.setAutoCompletionWordSeparators(my_list)
         self.setLexer(lexer)
