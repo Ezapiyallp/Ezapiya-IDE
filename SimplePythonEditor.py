@@ -1,6 +1,7 @@
 from PyQt5 import Qsci
 from PyQt5.QtGui import *
-from PyQt5.Qsci import QsciScintilla, QsciLexerPython,QsciLexerCPP,QsciLexerJava, QsciLexerJavaScript,QsciLexerCSharp,QsciLexerHTML,QsciLexerCSS,QsciLexerXML
+from PyQt5.Qsci import QsciScintilla, QsciLexerPython, QsciLexerCPP, QsciLexerJava, QsciLexerJavaScript, \
+    QsciLexerCSharp, QsciLexerHTML, QsciLexerCSS, QsciLexerXML, QsciLexerSQL
 from PyQt5.QtWidgets import QApplication, QShortcut, QFileDialog
 import keyword
 class SimplePythonEditor(QsciScintilla):
@@ -26,14 +27,12 @@ class SimplePythonEditor(QsciScintilla):
         self.setMarginsBackgroundColor(QColor("#232323"))
         self.setMarginsForegroundColor(QColor("#FFF"))
         self.setMarginSensitivity(1, True)
-        self.markerDefine(QsciScintilla.RightArrow,
-            self.ARROW_MARKER_NUM)
-        self.setMarkerBackgroundColor(QColor("#ee1111"),
-            self.ARROW_MARKER_NUM)
+        self.markerDefine(QsciScintilla.RightArrow, self.ARROW_MARKER_NUM)
+        self.setMarkerBackgroundColor(QColor("#ee1111"),self.ARROW_MARKER_NUM)
         self.setBraceMatching(QsciScintilla.SloppyBraceMatch)
         self.setCaretLineVisible(False)
         #lexer = QsciLexerPython()
-        lexer = QsciLexerCPP(self,False)
+        lexer = QsciLexerCPP()
         lexer.setDefaultFont(font)
         lexer.setDefaultPaper(QColor("#3c3c3c"))
         lexer.setDefaultColor(QColor("#f9f9f9"))
@@ -100,6 +99,13 @@ class SimplePythonEditor(QsciScintilla):
         if self.fileExtention == "html" or self.fileExtention == "htm":
             self.setHtmllexe()
 
+        if self.fileExtention == "sql":
+            self.setSQLlexe()
+        if self.fileExtention == "xml":
+            self.setXMLlexe()
+        if self.fileExtention == "css":
+            self.setCSSlexe()
+
         return self.fullFileName
 
     def getSaveStatus(self):
@@ -130,6 +136,16 @@ class SimplePythonEditor(QsciScintilla):
             self.setCSharplexer()
         if self.fileExtention == "html" or self.fileExtention == "htm":
             self.setHtmllexe()
+        if self.fileExtention == "css":
+            self.setXMLlexe()
+        if self.fileExtention == "sql":
+            self.setSQLlexe()
+        if self.fileExtention == "sql":
+            self.setSQLlexe()
+        if self.fileExtention == "xml":
+            self.setXMLlexe()
+        if self.fileExtention == "css":
+            self.setCSSlexe()
 
 
     def getFullFileName(self):
@@ -162,6 +178,8 @@ class SimplePythonEditor(QsciScintilla):
         self.setCaretLineVisible(False)
 
         lexer = QsciLexerCPP()
+
+
         lexer.setDefaultFont(font)
         lexer.setDefaultPaper(QColor("#3c3c3c"))
         lexer.setDefaultColor(QColor("#f9f9f9"))
@@ -647,3 +665,200 @@ class SimplePythonEditor(QsciScintilla):
         self.SendScintilla(QsciScintilla.SCI_SETHSCROLLBAR, 0)
         shortcut_ctrl_space = QShortcut(QKeySequence("Ctrl+Space"), self);
         # self.connect(shortcut_ctrl_space, SIGNAL(activated()), self,SLOT(autoCom
+
+    def setCSSlexe(self):
+        font = QFont()
+        font.setFamily('Courier')
+        font.setFixedPitch(True)
+        font.setPointSize(16)
+
+        self.setFont(font)
+        self.setMarginsFont(font)
+        self.setPaper(QColor('lightblue'))
+        fontmetrics = QFontMetrics(font)
+        self.setMarginsFont(font)
+        self.setMarginWidth(0, fontmetrics.width("00000") + 6)
+        self.setMarginLineNumbers(0, True)
+        self.setMarginsBackgroundColor(QColor("#232323"))
+        self.setMarginsForegroundColor(QColor("#FFF"))
+        self.setMarginSensitivity(1, True)
+        self.markerDefine(QsciScintilla.RightArrow, self.ARROW_MARKER_NUM)
+        self.setMarkerBackgroundColor(QColor("#ee1111"), self.ARROW_MARKER_NUM)
+        self.setBraceMatching(QsciScintilla.SloppyBraceMatch)
+        self.setCaretLineVisible(False)
+        lexer = QsciLexerCSS()
+        lexer.setDefaultFont(font)
+        lexer.setDefaultPaper(QColor("#3c3c3c"))
+        lexer.setDefaultColor(QColor("#f9f9f9"))
+        lexer.setColor(QColor("#A69C9C"), 0)  # Default = 0
+        lexer.setColor(QColor("#A95151"), 1)  # Tag = 1,
+        lexer.setColor(QColor("#6C51A9"), 2)  # ClassSelector = 2,
+        lexer.setColor(QColor("#BDA5F4"), 3)  # PseudoClass = 3,
+        lexer.setColor(QColor("#46939C"), 4)  # UnknownPseudoClass = 4,
+        lexer.setColor(QColor("#C5BA40"), 5)  # Operator = 5,
+        lexer.setColor(QColor("#296C39"), 6)  # CSS1Property = 6,
+        lexer.setColor(QColor("#96A82F"), 7)  # UnknownProperty = 7,
+        lexer.setColor(QColor("#A87F2F"), 8)  # Value = 8,
+        lexer.setColor(QColor("#FDD68A"), 9)  # Comment = 9,
+        lexer.setColor(QColor("#E1898F"), 10)  # IDSelector = 10,
+        lexer.setColor(QColor("#E1898F"), 11)  # Important = 11,
+        lexer.setColor(QColor("#E1898F"), 12)  # AtRule = 12,
+        lexer.setColor(QColor("#E1898F"), 13)  # DoubleQuotedString = 13,
+        lexer.setColor(QColor("#E1898F"), 14)  # SingleQuotedString = 14,
+        lexer.setColor(QColor("#E1898F"), 15)  # CSS2Property = 15,
+        lexer.setColor(QColor("#E1898F"), 16)  # Attribute = 16,
+        lexer.setColor(QColor("#E1898F"), 17)  # CSS3Property = 17,
+        lexer.setColor(QColor("#E1898F"), 18)  # PseudoElement = 18,
+        lexer.setColor(QColor("#E1898F"), 19)  # ExtendedCSSProperty = 19,
+        lexer.setColor(QColor("#E1898F"), 20)  # ExtendedPseudoClass = 20,
+        lexer.setColor(QColor("#E1898F"), 21)  # ExtendedPseudoElement = 21,
+        lexer.setColor(QColor("#E1898F"), 22)  # MediaRule = 22,
+        lexer.setColor(QColor("#E1898F"), 23)  # Variable = 23
+
+
+        self.setCaretForegroundColor(QColor("#FFFFFF"))
+        my_list = [".", " ", "{", "}", "[", "]", "(", ")", ":", ";"]
+        self.setAutoCompletionWordSeparators(my_list)
+        self.setLexer(lexer)
+        api = Qsci.QsciAPIs(lexer)
+        for key in keyword.kwlist + dir(__builtins__):
+            api.add(key)
+        api.add("aLongString")
+        api.add("aLongerString")
+        api.add("aDifferentString")
+        api.add("sOmethingElse")
+        api.prepare()
+        self.setAutoCompletionCaseSensitivity(False)
+        self.setAutoCompletionReplaceWord(False)
+        self.setAutoCompletionThreshold(1)
+        self.setAutoCompletionSource(Qsci.QsciScintilla.AcsAll)
+        self.SendScintilla(QsciScintilla.SCI_SETHSCROLLBAR, 0)
+        shortcut_ctrl_space = QShortcut(QKeySequence("Ctrl+Space"), self);
+        # self.connect(shortcut_ctrl_space, SIGNAL(activated()), self,SLOT(autoCompleteFromAll()));
+    def setXMLlexe(self):
+        font = QFont()
+        font.setFamily('Courier')
+        font.setFixedPitch(True)
+        font.setPointSize(16)
+
+        self.setFont(font)
+        self.setMarginsFont(font)
+        self.setPaper(QColor('lightblue'))
+        fontmetrics = QFontMetrics(font)
+        self.setMarginsFont(font)
+        self.setMarginWidth(0, fontmetrics.width("00000") + 6)
+        self.setMarginLineNumbers(0, True)
+        self.setMarginsBackgroundColor(QColor("#232323"))
+        self.setMarginsForegroundColor(QColor("#FFF"))
+        self.setMarginSensitivity(1, True)
+        self.markerDefine(QsciScintilla.RightArrow, self.ARROW_MARKER_NUM)
+        self.setMarkerBackgroundColor(QColor("#ee1111"), self.ARROW_MARKER_NUM)
+        self.setBraceMatching(QsciScintilla.SloppyBraceMatch)
+        self.setCaretLineVisible(False)
+        lexer = QsciLexerXML()
+        lexer.setDefaultFont(font)
+        lexer.setDefaultPaper(QColor("#3c3c3c"))
+        lexer.setDefaultColor(QColor("#f9f9f9"))
+        lexer.setColor(QColor("#A69C9C"), 0)  # Default = 0
+        lexer.setColor(QColor("#A95151"), 1)  # Comment = 1
+        lexer.setColor(QColor("#6C51A9"), 2)  # Number = 2
+        lexer.setColor(QColor("#BDA5F4"), 3)  # DoubleQuotedString = 3
+        lexer.setColor(QColor("#46939C"), 4)  # SingleQuotedString = 4
+        lexer.setColor(QColor("#C5BA40"), 5)  # Keyword = 5
+        lexer.setColor(QColor("#296C39"), 6)  # TripleSingleQuotedString = 6
+        lexer.setColor(QColor("#96A82F"), 7)  # TripleDoubleQuotedString = 7
+        lexer.setColor(QColor("#A87F2F"), 8)  # ClassName = 8
+        lexer.setColor(QColor("#FDD68A"), 9)  # FunctionMethodName = 9
+        lexer.setColor(QColor("#E1898F"), 10)  # Operator = 10
+        lexer.setColor(QColor("#E1898F"), 11)  # Identifier = 11
+        lexer.setColor(QColor("#E1898F"), 12)  # CommentBlock = 12
+        lexer.setColor(QColor("#E1898F"), 13)  # UnclosedString = 13
+        lexer.setColor(QColor("#E1898F"), 14)  # HighlightedIdentifier = 14
+        lexer.setColor(QColor("#E1898F"), 15)  # Decorator = 15
+
+        self.setCaretForegroundColor(QColor("#FFFFFF"))
+        my_list = [".", " ", "{", "}", "[", "]", "(", ")", ":", ";"]
+        self.setAutoCompletionWordSeparators(my_list)
+        self.setLexer(lexer)
+        api = Qsci.QsciAPIs(lexer)
+        for key in keyword.kwlist + dir(__builtins__):
+            api.add(key)
+        api.add("aLongString")
+        api.add("aLongerString")
+        api.add("aDifferentString")
+        api.add("sOmethingElse")
+        api.prepare()
+        self.setAutoCompletionCaseSensitivity(False)
+        self.setAutoCompletionReplaceWord(False)
+        self.setAutoCompletionThreshold(1)
+        self.setAutoCompletionSource(Qsci.QsciScintilla.AcsAll)
+        self.SendScintilla(QsciScintilla.SCI_SETHSCROLLBAR, 0)
+        shortcut_ctrl_space = QShortcut(QKeySequence("Ctrl+Space"), self);
+        # self.connect(shortcut_ctrl_space, SIGNAL(activated()), self,SLOT(autoCompleteFromAll()));
+    def setSQLlexe(self):
+        font = QFont()
+        font.setFamily('Courier')
+        font.setFixedPitch(True)
+        font.setPointSize(16)
+
+        self.setFont(font)
+        self.setMarginsFont(font)
+        self.setPaper(QColor('lightblue'))
+        fontmetrics = QFontMetrics(font)
+        self.setMarginsFont(font)
+        self.setMarginWidth(0, fontmetrics.width("00000") + 6)
+        self.setMarginLineNumbers(0, True)
+        self.setMarginsBackgroundColor(QColor("#232323"))
+        self.setMarginsForegroundColor(QColor("#FFF"))
+        self.setMarginSensitivity(1, True)
+        self.markerDefine(QsciScintilla.RightArrow, self.ARROW_MARKER_NUM)
+        self.setMarkerBackgroundColor(QColor("#ee1111"), self.ARROW_MARKER_NUM)
+        self.setBraceMatching(QsciScintilla.SloppyBraceMatch)
+        self.setCaretLineVisible(False)
+        lexer = QsciLexerSQL()
+        lexer.setDefaultFont(font)
+        lexer.setDefaultPaper(QColor("#3c3c3c"))
+        lexer.setDefaultColor(QColor("#f9f9f9"))
+        lexer.setColor(QColor("#A69C9C"), 0)  # Default = 0
+        lexer.setColor(QColor("#A95151"), 1)  # Comment = 1
+        lexer.setColor(QColor("#6C51A9"), 2)  # CommentLine = 2
+        lexer.setColor(QColor("#BDA5F4"), 3)  #   CommentDoc = 3
+        lexer.setColor(QColor("#46939C"), 4)  #  Number = 4
+        lexer.setColor(QColor("#C5BA40"), 5)  # Keyword = 5
+        lexer.setColor(QColor("#296C39"), 6)  #  DoubleQuotedString = 6
+        lexer.setColor(QColor("#96A82F"), 7)  # SingleQuotedString = 7
+        lexer.setColor(QColor("#A87F2F"), 8)  # PlusKeyword = 8,
+        lexer.setColor(QColor("#FDD68A"), 9)  #  PlusPrompt = 9
+        lexer.setColor(QColor("#E1898F"), 10)  #  Operator = 10
+        lexer.setColor(QColor("#E1898F"), 11)  # Identifier = 11
+        lexer.setColor(QColor("#E1898F"), 13)  #  PlusComment = 13,
+        lexer.setColor(QColor("#E1898F"), 15)  # CommentLineHash = 15,
+        lexer.setColor(QColor("#E1898F"), 17)  # CommentDocKeyword = 17,
+        lexer.setColor(QColor("#E1898F"), 18)  #  CommentDocKeywordError = 18
+        lexer.setColor(QColor("#E1898F"), 19)  # KeywordSet5 = 19
+        lexer.setColor(QColor("#E1898F"), 20)  #  KeywordSet6 = 20,
+        lexer.setColor(QColor("#E1898F"), 21)  #  KeywordSet7 = 21
+        lexer.setColor(QColor("#E1898F"), 22)  # KeywordSet8 = 22
+        lexer.setColor(QColor("#E1898F"), 23)  # QuotedIdentifier = 23,
+        lexer.setColor(QColor("#E1898F"), 24)  #   QuotedOperator = 24
+
+
+        self.setCaretForegroundColor(QColor("#FFFFFF"))
+        my_list = [".", " ", "{", "}", "[", "]", "(", ")", ":", ";"]
+        self.setAutoCompletionWordSeparators(my_list)
+        self.setLexer(lexer)
+        api = Qsci.QsciAPIs(lexer)
+        for key in keyword.kwlist + dir(__builtins__):
+            api.add(key)
+        api.add("aLongString")
+        api.add("aLongerString")
+        api.add("aDifferentString")
+        api.add("sOmethingElse")
+        api.prepare()
+        self.setAutoCompletionCaseSensitivity(False)
+        self.setAutoCompletionReplaceWord(False)
+        self.setAutoCompletionThreshold(1)
+        self.setAutoCompletionSource(Qsci.QsciScintilla.AcsAll)
+        self.SendScintilla(QsciScintilla.SCI_SETHSCROLLBAR, 0)
+        shortcut_ctrl_space = QShortcut(QKeySequence("Ctrl+Space"), self);
+        # self.connect(shortcut_ctrl_space, SIGNAL(activated()), self,SLOT(autoCompleteFromAll()));
