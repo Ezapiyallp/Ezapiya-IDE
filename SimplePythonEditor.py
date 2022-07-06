@@ -30,23 +30,42 @@ class SimplePythonEditor(QsciScintilla):
         self.markerDefine(QsciScintilla.RightArrow, self.ARROW_MARKER_NUM)
         self.setMarkerBackgroundColor(QColor("#ee1111"),self.ARROW_MARKER_NUM)
         self.setBraceMatching(QsciScintilla.SloppyBraceMatch)
-        self.setCaretLineVisible(False)
+        self.setCaretLineBackgroundColor(QColor("#264026"))
+        self.setCaretLineVisible(True)
         #lexer = QsciLexerPython()
         lexer = QsciLexerCPP()
         lexer.setDefaultFont(font)
         lexer.setDefaultPaper(QColor("#3c3c3c"))
         lexer.setDefaultColor(QColor("#f9f9f9"))
-        lexer.setColor(QColor("#A69C9C"), 0)
-        lexer.setColor(QColor("#A95151"), 1)
-        lexer.setColor(QColor("#6C51A9"), 2)
-        lexer.setColor(QColor("#BDA5F4"), 3)
-        lexer.setColor(QColor("#46939C"), 4)
-        lexer.setColor(QColor("#C5BA40"), 5)
-        lexer.setColor(QColor("#296C39"), 6) # String normal
-        lexer.setColor(QColor("#96A82F"), 7)
-        lexer.setColor(QColor("#A87F2F"), 8)
-        lexer.setColor(QColor("#FDD68A"), 9)
-        lexer.setColor(QColor("#E1898F"), 10)
+
+        lexer.setColor(QColor("#FFFFFF"), 0)#  Default = 0
+        lexer.setColor(QColor("#FEFB02"), 1)# Comment = 1
+        lexer.setColor(QColor("#FE6905"), 2)# CommentLine = 2
+        lexer.setColor(QColor("#FECC05"), 3)# CommentDoc = 3
+        lexer.setColor(QColor("#A9FE05"), 4)#  Number = 4
+        lexer.setColor(QColor("#88E22B"), 5)# Keyword = 5
+        lexer.setColor(QColor("#8CDCFE"), 6)#  DoubleQuotedString = 6
+        lexer.setColor(QColor("#05C6FE"), 7)#  SingleQuotedString = 7
+        lexer.setColor(QColor("#058CFE"), 8)#  UUID = 8
+        lexer.setColor(QColor("#05C6FE"), 9)#  PreProcessor = 9
+        lexer.setColor(QColor("#FECC05"), 10)#  Operator = 10
+        lexer.setColor(QColor("#FFF"), 11)#  Identifier = 1
+        lexer.setColor(QColor("#05C6FE"), 12)# UnclosedString = 12
+        lexer.setColor(QColor("#AC7DCE"), 13)# VerbatimString = 13
+        lexer.setColor(QColor("#88E22B"), 14)# Regex = 14
+        lexer.setColor(QColor("#E7DB74"), 15)# CommentLineDoc = 15
+        lexer.setColor(QColor("#60D8EF"), 16)# KeywordSet2 = 16
+        lexer.setColor(QColor("#B36932"), 17)#  CommentDocKeyword = 17
+        lexer.setColor(QColor("#519ABA"), 18)# CommentDocKeywordError = 18
+        lexer.setColor(QColor("#CDD100"), 19)# GlobalClass = 19
+        lexer.setColor(QColor("#05C6FE"), 20)# RawString = 20
+        lexer.setColor(QColor("#CE9172"), 21)# TripleQuotedVerbatimString = 21
+        lexer.setColor(QColor("#EC5166"), 22)# HashQuotedString = 22
+        lexer.setColor(QColor("#C5A84F"), 23)#  PreProcessorComment = 23,
+        lexer.setColor(QColor("#B9644F"), 24)#   PreProcessorCommentLineDoc = 2
+        lexer.setColor(QColor("#C3485C"), 25)# UserLiteral = 25
+        lexer.setColor(QColor("#498B60"), 26)# TaskMarker = 26
+        lexer.setColor(QColor("#E1898F"), 27)# EscapeSequence = 27
         self.setCaretForegroundColor(QColor("#FFFFFF"))
         my_list = ["."]
         self.setAutoCompletionWordSeparators(my_list)
@@ -175,7 +194,8 @@ class SimplePythonEditor(QsciScintilla):
         self.markerDefine(QsciScintilla.RightArrow,self.ARROW_MARKER_NUM)
         self.setMarkerBackgroundColor(QColor("#ee1111"),self.ARROW_MARKER_NUM)
         self.setBraceMatching(QsciScintilla.SloppyBraceMatch)
-        self.setCaretLineVisible(False)
+        self.setCaretLineBackgroundColor(QColor("#264026"))
+        self.setCaretLineVisible(True)
 
         lexer = QsciLexerCPP()
 
@@ -183,34 +203,34 @@ class SimplePythonEditor(QsciScintilla):
         lexer.setDefaultFont(font)
         lexer.setDefaultPaper(QColor("#3c3c3c"))
         lexer.setDefaultColor(QColor("#f9f9f9"))
-        lexer.setColor(QColor("#A69C9C"), 0)#  Default = 0
-        lexer.setColor(QColor("#A95151"), 1)# Comment = 1
-        lexer.setColor(QColor("#6C51A9"), 2)# CommentLine = 2
-        lexer.setColor(QColor("#BDA5F4"), 3)# CommentDoc = 3
-        lexer.setColor(QColor("#46939C"), 4)#  Number = 4
-        lexer.setColor(QColor("#C5BA40"), 5)# Keyword = 5
-        lexer.setColor(QColor("#296C39"), 6)#  DoubleQuotedString = 6
-        lexer.setColor(QColor("#96A82F"), 7)#  SingleQuotedString = 7
-        lexer.setColor(QColor("#A87F2F"), 8)#  UUID = 8
-        lexer.setColor(QColor("#FDD68A"), 9)#  PreProcessor = 9
-        lexer.setColor(QColor("#E1898F"), 10)#  Operator = 10
-        lexer.setColor(QColor("#E1898F"), 11)#  Identifier = 1
-        lexer.setColor(QColor("#E1898F"), 12)# UnclosedString = 12
-        lexer.setColor(QColor("#E1898F"), 13)# VerbatimString = 13
-        lexer.setColor(QColor("#E1898F"), 14)# Regex = 14
-        lexer.setColor(QColor("#E1898F"), 15)# CommentLineDoc = 15
-        lexer.setColor(QColor("#E1898F"), 16)# KeywordSet2 = 16
-        lexer.setColor(QColor("#E1898F"), 17)#  CommentDocKeyword = 17
-        lexer.setColor(QColor("#E1898F"), 18)# CommentDocKeywordError = 18
-        lexer.setColor(QColor("#E1898F"), 19)# GlobalClass = 19
-        lexer.setColor(QColor("#E1898F"), 20)# RawString = 20
-        lexer.setColor(QColor("#E1898F"), 21)# TripleQuotedVerbatimString = 21
-        lexer.setColor(QColor("#E1898F"), 22)# HashQuotedString = 22
-        lexer.setColor(QColor("#E1898F"), 23)#  PreProcessorComment = 23,
-        lexer.setColor(QColor("#E1898F"), 24)#   PreProcessorCommentLineDoc = 2
-        lexer.setColor(QColor("#E1898F"), 25)# UserLiteral = 25
-        lexer.setColor(QColor("#E1898F"), 26)# TaskMarker = 26
-        lexer.setColor(QColor("#E1898F"), 27)# EscapeSequence = 27
+        lexer.setColor(QColor("#FFFFFF"), 0)  # Default = 0
+        lexer.setColor(QColor("#FEFB02"), 1)  # Comment = 1
+        lexer.setColor(QColor("#FE6905"), 2)  # CommentLine = 2
+        lexer.setColor(QColor("#FECC05"), 3)  # CommentDoc = 3
+        lexer.setColor(QColor("#A9FE05"), 4)  # Number = 4
+        lexer.setColor(QColor("#88E22B"), 5)  # Keyword = 5
+        lexer.setColor(QColor("#8CDCFE"), 6)  # DoubleQuotedString = 6
+        lexer.setColor(QColor("#05C6FE"), 7)  # SingleQuotedString = 7
+        lexer.setColor(QColor("#058CFE"), 8)  # UUID = 8
+        lexer.setColor(QColor("#05C6FE"), 9)  # PreProcessor = 9
+        lexer.setColor(QColor("#FECC05"), 10)  # Operator = 10
+        lexer.setColor(QColor("#FFF"), 11)  # Identifier = 1
+        lexer.setColor(QColor("#05C6FE"), 12)  # UnclosedString = 12
+        lexer.setColor(QColor("#AC7DCE"), 13)  # VerbatimString = 13
+        lexer.setColor(QColor("#88E22B"), 14)  # Regex = 14
+        lexer.setColor(QColor("#E7DB74"), 15)  # CommentLineDoc = 15
+        lexer.setColor(QColor("#60D8EF"), 16)  # KeywordSet2 = 16
+        lexer.setColor(QColor("#B36932"), 17)  # CommentDocKeyword = 17
+        lexer.setColor(QColor("#519ABA"), 18)  # CommentDocKeywordError = 18
+        lexer.setColor(QColor("#CDD100"), 19)  # GlobalClass = 19
+        lexer.setColor(QColor("#05C6FE"), 20)  # RawString = 20
+        lexer.setColor(QColor("#CE9172"), 21)  # TripleQuotedVerbatimString = 21
+        lexer.setColor(QColor("#EC5166"), 22)  # HashQuotedString = 22
+        lexer.setColor(QColor("#C5A84F"), 23)  # PreProcessorComment = 23,
+        lexer.setColor(QColor("#B9644F"), 24)  # PreProcessorCommentLineDoc = 2
+        lexer.setColor(QColor("#C3485C"), 25)  # UserLiteral = 25
+        lexer.setColor(QColor("#498B60"), 26)  # TaskMarker = 26
+        lexer.setColor(QColor("#E1898F"), 27)  # EscapeSequence = 27
         self.setCaretForegroundColor(QColor("#FFFFFF"))
         my_list = [".", " ", "{","}","[","]","(",")", ":", ";"]
         #self.autoCompletionFillups()
@@ -251,7 +271,8 @@ class SimplePythonEditor(QsciScintilla):
         self.markerDefine(QsciScintilla.RightArrow, self.ARROW_MARKER_NUM)
         self.setMarkerBackgroundColor(QColor("#ee1111"), self.ARROW_MARKER_NUM)
         self.setBraceMatching(QsciScintilla.SloppyBraceMatch)
-        self.setCaretLineVisible(False)
+        self.setCaretLineBackgroundColor(QColor("#264026"))
+        self.setCaretLineVisible(True)
         lexer = QsciLexerPython()
         lexer.setDefaultFont(font)
         lexer.setDefaultPaper(QColor("#3c3c3c"))
@@ -312,38 +333,39 @@ class SimplePythonEditor(QsciScintilla):
         self.markerDefine(QsciScintilla.RightArrow, self.ARROW_MARKER_NUM)
         self.setMarkerBackgroundColor(QColor("#ee1111"), self.ARROW_MARKER_NUM)
         self.setBraceMatching(QsciScintilla.SloppyBraceMatch)
-        self.setCaretLineVisible(False)
+        self.setCaretLineBackgroundColor(QColor("#264026"))
+        self.setCaretLineVisible(True)
         lexer = QsciLexerJava()
         lexer.setDefaultFont(font)
         lexer.setDefaultPaper(QColor("#3c3c3c"))
         lexer.setDefaultColor(QColor("#f9f9f9"))
-        lexer.setColor(QColor("#A69C9C"), 0)  # Default = 0
-        lexer.setColor(QColor("#A95151"), 1)  # Comment = 1
-        lexer.setColor(QColor("#6C51A9"), 2)  # CommentLine = 2
-        lexer.setColor(QColor("#BDA5F4"), 3)  # CommentDoc = 3
-        lexer.setColor(QColor("#46939C"), 4)  # Number = 4
-        lexer.setColor(QColor("#C5BA40"), 5)  # Keyword = 5
-        lexer.setColor(QColor("#296C39"), 6)  # DoubleQuotedString = 6
-        lexer.setColor(QColor("#96A82F"), 7)  # SingleQuotedString = 7
-        lexer.setColor(QColor("#A87F2F"), 8)  # UUID = 8
-        lexer.setColor(QColor("#FDD68A"), 9)  # PreProcessor = 9
-        lexer.setColor(QColor("#E1898F"), 10)  # Operator = 10
-        lexer.setColor(QColor("#E1898F"), 11)  # Identifier = 1
-        lexer.setColor(QColor("#E1898F"), 12)  # UnclosedString = 12
-        lexer.setColor(QColor("#E1898F"), 13)  # VerbatimString = 13
-        lexer.setColor(QColor("#E1898F"), 14)  # Regex = 14
-        lexer.setColor(QColor("#E1898F"), 15)  # CommentLineDoc = 15
-        lexer.setColor(QColor("#E1898F"), 16)  # KeywordSet2 = 16
-        lexer.setColor(QColor("#E1898F"), 17)  # CommentDocKeyword = 17
-        lexer.setColor(QColor("#E1898F"), 18)  # CommentDocKeywordError = 18
-        lexer.setColor(QColor("#E1898F"), 19)  # GlobalClass = 19
-        lexer.setColor(QColor("#E1898F"), 20)  # RawString = 20
-        lexer.setColor(QColor("#E1898F"), 21)  # TripleQuotedVerbatimString = 21
-        lexer.setColor(QColor("#E1898F"), 22)  # HashQuotedString = 22
-        lexer.setColor(QColor("#E1898F"), 23)  # PreProcessorComment = 23,
-        lexer.setColor(QColor("#E1898F"), 24)  # PreProcessorCommentLineDoc = 2
-        lexer.setColor(QColor("#E1898F"), 25)  # UserLiteral = 25
-        lexer.setColor(QColor("#E1898F"), 26)  # TaskMarker = 26
+        lexer.setColor(QColor("#FFFFFF"), 0)  # Default = 0
+        lexer.setColor(QColor("#FEFB02"), 1)  # Comment = 1
+        lexer.setColor(QColor("#FE6905"), 2)  # CommentLine = 2
+        lexer.setColor(QColor("#FECC05"), 3)  # CommentDoc = 3
+        lexer.setColor(QColor("#A9FE05"), 4)  # Number = 4
+        lexer.setColor(QColor("#88E22B"), 5)  # Keyword = 5
+        lexer.setColor(QColor("#8CDCFE"), 6)  # DoubleQuotedString = 6
+        lexer.setColor(QColor("#05C6FE"), 7)  # SingleQuotedString = 7
+        lexer.setColor(QColor("#058CFE"), 8)  # UUID = 8
+        lexer.setColor(QColor("#05C6FE"), 9)  # PreProcessor = 9
+        lexer.setColor(QColor("#FECC05"), 10)  # Operator = 10
+        lexer.setColor(QColor("#FFF"), 11)  # Identifier = 1
+        lexer.setColor(QColor("#05C6FE"), 12)  # UnclosedString = 12
+        lexer.setColor(QColor("#AC7DCE"), 13)  # VerbatimString = 13
+        lexer.setColor(QColor("#88E22B"), 14)  # Regex = 14
+        lexer.setColor(QColor("#E7DB74"), 15)  # CommentLineDoc = 15
+        lexer.setColor(QColor("#60D8EF"), 16)  # KeywordSet2 = 16
+        lexer.setColor(QColor("#B36932"), 17)  # CommentDocKeyword = 17
+        lexer.setColor(QColor("#519ABA"), 18)  # CommentDocKeywordError = 18
+        lexer.setColor(QColor("#CDD100"), 19)  # GlobalClass = 19
+        lexer.setColor(QColor("#05C6FE"), 20)  # RawString = 20
+        lexer.setColor(QColor("#CE9172"), 21)  # TripleQuotedVerbatimString = 21
+        lexer.setColor(QColor("#EC5166"), 22)  # HashQuotedString = 22
+        lexer.setColor(QColor("#C5A84F"), 23)  # PreProcessorComment = 23,
+        lexer.setColor(QColor("#B9644F"), 24)  # PreProcessorCommentLineDoc = 2
+        lexer.setColor(QColor("#C3485C"), 25)  # UserLiteral = 25
+        lexer.setColor(QColor("#498B60"), 26)  # TaskMarker = 26
         lexer.setColor(QColor("#E1898F"), 27)  # EscapeSequence = 27
         self.setCaretForegroundColor(QColor("#FFFFFF"))
         my_list = [".", " ", "{","}","[","]","(",")", ":", ";"]
@@ -384,38 +406,39 @@ class SimplePythonEditor(QsciScintilla):
         self.markerDefine(QsciScintilla.RightArrow, self.ARROW_MARKER_NUM)
         self.setMarkerBackgroundColor(QColor("#ee1111"), self.ARROW_MARKER_NUM)
         self.setBraceMatching(QsciScintilla.SloppyBraceMatch)
-        self.setCaretLineVisible(False)
+        self.setCaretLineBackgroundColor(QColor("#264026"))
+        self.setCaretLineVisible(True)
         lexer = QsciLexerJavaScript()
         lexer.setDefaultFont(font)
         lexer.setDefaultPaper(QColor("#3c3c3c"))
         lexer.setDefaultColor(QColor("#f9f9f9"))
-        lexer.setColor(QColor("#A69C9C"), 0)  # Default = 0
-        lexer.setColor(QColor("#A95151"), 1)  # Comment = 1
-        lexer.setColor(QColor("#6C51A9"), 2)  # CommentLine = 2
-        lexer.setColor(QColor("#BDA5F4"), 3)  # CommentDoc = 3
-        lexer.setColor(QColor("#46939C"), 4)  # Number = 4
-        lexer.setColor(QColor("#C5BA40"), 5)  # Keyword = 5
-        lexer.setColor(QColor("#296C39"), 6)  # DoubleQuotedString = 6
-        lexer.setColor(QColor("#96A82F"), 7)  # SingleQuotedString = 7
-        lexer.setColor(QColor("#A87F2F"), 8)  # UUID = 8
-        lexer.setColor(QColor("#FDD68A"), 9)  # PreProcessor = 9
-        lexer.setColor(QColor("#E1898F"), 10)  # Operator = 10
-        lexer.setColor(QColor("#E1898F"), 11)  # Identifier = 1
-        lexer.setColor(QColor("#E1898F"), 12)  # UnclosedString = 12
-        lexer.setColor(QColor("#E1898F"), 13)  # VerbatimString = 13
-        lexer.setColor(QColor("#E1898F"), 14)  # Regex = 14
-        lexer.setColor(QColor("#E1898F"), 15)  # CommentLineDoc = 15
-        lexer.setColor(QColor("#E1898F"), 16)  # KeywordSet2 = 16
-        lexer.setColor(QColor("#E1898F"), 17)  # CommentDocKeyword = 17
-        lexer.setColor(QColor("#E1898F"), 18)  # CommentDocKeywordError = 18
-        lexer.setColor(QColor("#E1898F"), 19)  # GlobalClass = 19
-        lexer.setColor(QColor("#E1898F"), 20)  # RawString = 20
-        lexer.setColor(QColor("#E1898F"), 21)  # TripleQuotedVerbatimString = 21
-        lexer.setColor(QColor("#E1898F"), 22)  # HashQuotedString = 22
-        lexer.setColor(QColor("#E1898F"), 23)  # PreProcessorComment = 23,
-        lexer.setColor(QColor("#E1898F"), 24)  # PreProcessorCommentLineDoc = 2
-        lexer.setColor(QColor("#E1898F"), 25)  # UserLiteral = 25
-        lexer.setColor(QColor("#E1898F"), 26)  # TaskMarker = 26
+        lexer.setColor(QColor("#FFFFFF"), 0)  # Default = 0
+        lexer.setColor(QColor("#FEFB02"), 1)  # Comment = 1
+        lexer.setColor(QColor("#FE6905"), 2)  # CommentLine = 2
+        lexer.setColor(QColor("#FECC05"), 3)  # CommentDoc = 3
+        lexer.setColor(QColor("#A9FE05"), 4)  # Number = 4
+        lexer.setColor(QColor("#88E22B"), 5)  # Keyword = 5
+        lexer.setColor(QColor("#8CDCFE"), 6)  # DoubleQuotedString = 6
+        lexer.setColor(QColor("#05C6FE"), 7)  # SingleQuotedString = 7
+        lexer.setColor(QColor("#058CFE"), 8)  # UUID = 8
+        lexer.setColor(QColor("#05C6FE"), 9)  # PreProcessor = 9
+        lexer.setColor(QColor("#FECC05"), 10)  # Operator = 10
+        lexer.setColor(QColor("#FFF"), 11)  # Identifier = 1
+        lexer.setColor(QColor("#05C6FE"), 12)  # UnclosedString = 12
+        lexer.setColor(QColor("#AC7DCE"), 13)  # VerbatimString = 13
+        lexer.setColor(QColor("#88E22B"), 14)  # Regex = 14
+        lexer.setColor(QColor("#E7DB74"), 15)  # CommentLineDoc = 15
+        lexer.setColor(QColor("#60D8EF"), 16)  # KeywordSet2 = 16
+        lexer.setColor(QColor("#B36932"), 17)  # CommentDocKeyword = 17
+        lexer.setColor(QColor("#519ABA"), 18)  # CommentDocKeywordError = 18
+        lexer.setColor(QColor("#CDD100"), 19)  # GlobalClass = 19
+        lexer.setColor(QColor("#05C6FE"), 20)  # RawString = 20
+        lexer.setColor(QColor("#CE9172"), 21)  # TripleQuotedVerbatimString = 21
+        lexer.setColor(QColor("#EC5166"), 22)  # HashQuotedString = 22
+        lexer.setColor(QColor("#C5A84F"), 23)  # PreProcessorComment = 23,
+        lexer.setColor(QColor("#B9644F"), 24)  # PreProcessorCommentLineDoc = 2
+        lexer.setColor(QColor("#C3485C"), 25)  # UserLiteral = 25
+        lexer.setColor(QColor("#498B60"), 26)  # TaskMarker = 26
         lexer.setColor(QColor("#E1898F"), 27)  # EscapeSequence = 27
         self.setCaretForegroundColor(QColor("#FFFFFF"))
         my_list = [".", " ", "{","}","[","]","(",")", ":", ";"]
@@ -456,38 +479,39 @@ class SimplePythonEditor(QsciScintilla):
         self.markerDefine(QsciScintilla.RightArrow, self.ARROW_MARKER_NUM)
         self.setMarkerBackgroundColor(QColor("#ee1111"), self.ARROW_MARKER_NUM)
         self.setBraceMatching(QsciScintilla.SloppyBraceMatch)
-        self.setCaretLineVisible(False)
+        self.setCaretLineBackgroundColor(QColor("#264026"))
+        self.setCaretLineVisible(True)
         lexer = QsciLexerCSharp()
         lexer.setDefaultFont(font)
         lexer.setDefaultPaper(QColor("#3c3c3c"))
         lexer.setDefaultColor(QColor("#f9f9f9"))
-        lexer.setColor(QColor("#A69C9C"), 0)  # Default = 0
-        lexer.setColor(QColor("#A95151"), 1)  # Comment = 1
-        lexer.setColor(QColor("#6C51A9"), 2)  # CommentLine = 2
-        lexer.setColor(QColor("#BDA5F4"), 3)  # CommentDoc = 3
-        lexer.setColor(QColor("#46939C"), 4)  # Number = 4
-        lexer.setColor(QColor("#C5BA40"), 5)  # Keyword = 5
-        lexer.setColor(QColor("#296C39"), 6)  # DoubleQuotedString = 6
-        lexer.setColor(QColor("#96A82F"), 7)  # SingleQuotedString = 7
-        lexer.setColor(QColor("#A87F2F"), 8)  # UUID = 8
-        lexer.setColor(QColor("#FDD68A"), 9)  # PreProcessor = 9
-        lexer.setColor(QColor("#E1898F"), 10)  # Operator = 10
-        lexer.setColor(QColor("#E1898F"), 11)  # Identifier = 1
-        lexer.setColor(QColor("#E1898F"), 12)  # UnclosedString = 12
-        lexer.setColor(QColor("#E1898F"), 13)  # VerbatimString = 13
-        lexer.setColor(QColor("#E1898F"), 14)  # Regex = 14
-        lexer.setColor(QColor("#E1898F"), 15)  # CommentLineDoc = 15
-        lexer.setColor(QColor("#E1898F"), 16)  # KeywordSet2 = 16
-        lexer.setColor(QColor("#E1898F"), 17)  # CommentDocKeyword = 17
-        lexer.setColor(QColor("#E1898F"), 18)  # CommentDocKeywordError = 18
-        lexer.setColor(QColor("#E1898F"), 19)  # GlobalClass = 19
-        lexer.setColor(QColor("#E1898F"), 20)  # RawString = 20
-        lexer.setColor(QColor("#E1898F"), 21)  # TripleQuotedVerbatimString = 21
-        lexer.setColor(QColor("#E1898F"), 22)  # HashQuotedString = 22
-        lexer.setColor(QColor("#E1898F"), 23)  # PreProcessorComment = 23,
-        lexer.setColor(QColor("#E1898F"), 24)  # PreProcessorCommentLineDoc = 2
-        lexer.setColor(QColor("#E1898F"), 25)  # UserLiteral = 25
-        lexer.setColor(QColor("#E1898F"), 26)  # TaskMarker = 26
+        lexer.setColor(QColor("#FFFFFF"), 0)  # Default = 0
+        lexer.setColor(QColor("#FEFB02"), 1)  # Comment = 1
+        lexer.setColor(QColor("#FE6905"), 2)  # CommentLine = 2
+        lexer.setColor(QColor("#FECC05"), 3)  # CommentDoc = 3
+        lexer.setColor(QColor("#A9FE05"), 4)  # Number = 4
+        lexer.setColor(QColor("#88E22B"), 5)  # Keyword = 5
+        lexer.setColor(QColor("#8CDCFE"), 6)  # DoubleQuotedString = 6
+        lexer.setColor(QColor("#05C6FE"), 7)  # SingleQuotedString = 7
+        lexer.setColor(QColor("#058CFE"), 8)  # UUID = 8
+        lexer.setColor(QColor("#05C6FE"), 9)  # PreProcessor = 9
+        lexer.setColor(QColor("#FECC05"), 10)  # Operator = 10
+        lexer.setColor(QColor("#FFF"), 11)  # Identifier = 1
+        lexer.setColor(QColor("#05C6FE"), 12)  # UnclosedString = 12
+        lexer.setColor(QColor("#AC7DCE"), 13)  # VerbatimString = 13
+        lexer.setColor(QColor("#88E22B"), 14)  # Regex = 14
+        lexer.setColor(QColor("#E7DB74"), 15)  # CommentLineDoc = 15
+        lexer.setColor(QColor("#60D8EF"), 16)  # KeywordSet2 = 16
+        lexer.setColor(QColor("#B36932"), 17)  # CommentDocKeyword = 17
+        lexer.setColor(QColor("#519ABA"), 18)  # CommentDocKeywordError = 18
+        lexer.setColor(QColor("#CDD100"), 19)  # GlobalClass = 19
+        lexer.setColor(QColor("#05C6FE"), 20)  # RawString = 20
+        lexer.setColor(QColor("#CE9172"), 21)  # TripleQuotedVerbatimString = 21
+        lexer.setColor(QColor("#EC5166"), 22)  # HashQuotedString = 22
+        lexer.setColor(QColor("#C5A84F"), 23)  # PreProcessorComment = 23,
+        lexer.setColor(QColor("#B9644F"), 24)  # PreProcessorCommentLineDoc = 2
+        lexer.setColor(QColor("#C3485C"), 25)  # UserLiteral = 25
+        lexer.setColor(QColor("#498B60"), 26)  # TaskMarker = 26
         lexer.setColor(QColor("#E1898F"), 27)  # EscapeSequence = 27
         self.setCaretForegroundColor(QColor("#FFFFFF"))
         my_list = [".", " ", "{","}","[","]","(",")", ":", ";"]
@@ -529,7 +553,8 @@ class SimplePythonEditor(QsciScintilla):
         self.markerDefine(QsciScintilla.RightArrow, self.ARROW_MARKER_NUM)
         self.setMarkerBackgroundColor(QColor("#ee1111"), self.ARROW_MARKER_NUM)
         self.setBraceMatching(QsciScintilla.SloppyBraceMatch)
-        self.setCaretLineVisible(False)
+        self.setCaretLineBackgroundColor(QColor("#264026"))
+        self.setCaretLineVisible(True)
         lexer = QsciLexerHTML()
         lexer.setDefaultFont(font)
         lexer.setDefaultPaper(QColor("#3c3c3c"))
@@ -685,7 +710,8 @@ class SimplePythonEditor(QsciScintilla):
         self.markerDefine(QsciScintilla.RightArrow, self.ARROW_MARKER_NUM)
         self.setMarkerBackgroundColor(QColor("#ee1111"), self.ARROW_MARKER_NUM)
         self.setBraceMatching(QsciScintilla.SloppyBraceMatch)
-        self.setCaretLineVisible(False)
+        self.setCaretLineBackgroundColor(QColor("#264026"))
+        self.setCaretLineVisible(True)
         lexer = QsciLexerCSS()
         lexer.setDefaultFont(font)
         lexer.setDefaultPaper(QColor("#3c3c3c"))
@@ -754,7 +780,8 @@ class SimplePythonEditor(QsciScintilla):
         self.markerDefine(QsciScintilla.RightArrow, self.ARROW_MARKER_NUM)
         self.setMarkerBackgroundColor(QColor("#ee1111"), self.ARROW_MARKER_NUM)
         self.setBraceMatching(QsciScintilla.SloppyBraceMatch)
-        self.setCaretLineVisible(False)
+        self.setCaretLineBackgroundColor(QColor("#264026"))
+        self.setCaretLineVisible(True)
         lexer = QsciLexerXML()
         lexer.setDefaultFont(font)
         lexer.setDefaultPaper(QColor("#3c3c3c"))
@@ -814,7 +841,8 @@ class SimplePythonEditor(QsciScintilla):
         self.markerDefine(QsciScintilla.RightArrow, self.ARROW_MARKER_NUM)
         self.setMarkerBackgroundColor(QColor("#ee1111"), self.ARROW_MARKER_NUM)
         self.setBraceMatching(QsciScintilla.SloppyBraceMatch)
-        self.setCaretLineVisible(False)
+        self.setCaretLineBackgroundColor(QColor("#264026"))
+        self.setCaretLineVisible(True)
         lexer = QsciLexerSQL()
         lexer.setDefaultFont(font)
         lexer.setDefaultPaper(QColor("#3c3c3c"))

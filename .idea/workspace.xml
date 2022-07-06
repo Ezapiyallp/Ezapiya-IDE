@@ -240,7 +240,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657035845582</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="lex css xml">
+      <created>1657105187261</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1657105187261</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -269,7 +276,8 @@
     <MESSAGE value="add Colorcode" />
     <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
     <MESSAGE value="html" />
-    <option name="LAST_COMMIT_MESSAGE" value="html" />
+    <MESSAGE value="lex css xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="lex css xml" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -281,22 +289,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/SimplePythonEditor.py</url>
-          <line>235</line>
+          <line>255</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/SimplePythonEditor.py</url>
-          <line>291</line>
+          <line>312</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/SimplePythonEditor.py</url>
-          <line>296</line>
+          <line>317</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/SimplePythonEditor.py</url>
-          <line>368</line>
+          <line>390</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
