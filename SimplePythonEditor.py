@@ -1,5 +1,4 @@
-from PyQt5 import Qsci, QtPrintSupport
-
+from PyQt5 import Qsci
 from PyQt5.QtGui import *
 from PyQt5.Qsci import QsciScintilla, QsciLexerPython, QsciLexerCPP, QsciLexerJava, QsciLexerJavaScript, \
     QsciLexerCSharp, QsciLexerHTML, QsciLexerCSS, QsciLexerXML, QsciLexerSQL
@@ -131,7 +130,7 @@ class SimplePythonEditor(QsciScintilla):
     def getSaveStatus(self):
         return self.saveStatus
 
-    def saveFile(self,fileName):
+    def saveFile(self, fileName):
         self.fullFileName = fileName[0]
         tfileName = fileName[0]
         tfileName = tfileName.split('/')
@@ -144,7 +143,7 @@ class SimplePythonEditor(QsciScintilla):
         f.close()
         self.saveStatus = "Yes"
 
-        if self.fileExtention == "c" or self.fileExtention=="cpp" :
+        if self.fileExtention == "c" or self.fileExtention == "cpp":
             self.setCpplexer()
         if self.fileExtention == "py":
             self.setPythonlexer()
@@ -258,7 +257,6 @@ class SimplePythonEditor(QsciScintilla):
         font.setFamily('Courier')
         font.setFixedPitch(True)
         font.setPointSize(16)
-
         self.setFont(font)
         self.setMarginsFont(font)
         self.setPaper(QColor('lightblue'))
@@ -278,18 +276,18 @@ class SimplePythonEditor(QsciScintilla):
         lexer.setDefaultFont(font)
         lexer.setDefaultPaper(QColor("#3c3c3c"))
         lexer.setDefaultColor(QColor("#f9f9f9"))
-        lexer.setColor(QColor("#A69C9C"), 0)# Default = 0
-        lexer.setColor(QColor("#A95151"), 1)# Comment = 1
-        lexer.setColor(QColor("#6C51A9"), 2)#  Number = 2
-        lexer.setColor(QColor("#BDA5F4"), 3)#  DoubleQuotedString = 3
-        lexer.setColor(QColor("#46939C"), 4)# SingleQuotedString = 4
-        lexer.setColor(QColor("#C5BA40"), 5)#    Keyword = 5
-        lexer.setColor(QColor("#296C39"), 6)# TripleSingleQuotedString = 6
-        lexer.setColor(QColor("#96A82F"), 7)# TripleDoubleQuotedString = 7
-        lexer.setColor(QColor("#A87F2F"), 8)#  ClassName = 8
-        lexer.setColor(QColor("#FDD68A"), 9)#  FunctionMethodName = 9
-        lexer.setColor(QColor("#E1898F"), 10)#  Operator = 10
-        lexer.setColor(QColor("#E1898F"), 11)#  Identifier = 11
+        lexer.setColor(QColor("#058CFE"), 0)# Default = 0
+        lexer.setColor(QColor("#05FE40"), 1)# Comment = 1
+        lexer.setColor(QColor("#FEFB02"), 2)#  Number = 2#
+        lexer.setColor(QColor("#BDA5F4"), 3)#  DoubleQuotedString = 3#
+        lexer.setColor(QColor("#BDA5F4"), 4)# SingleQuotedString = 4#
+        lexer.setColor(QColor("#60D8EF"), 5)#    Keyword = 5#
+        lexer.setColor(QColor("#BDA5F4"), 6)# TripleSingleQuotedString = 6#
+        lexer.setColor(QColor("#BDA5F4"), 7)# TripleDoubleQuotedString = 7#
+        lexer.setColor(QColor("#88E22B"), 8)#  ClassName = 8#
+        lexer.setColor(QColor("#FDD68A"), 9)#  FunctionMethodName = 9#
+        lexer.setColor(QColor("#60D8EF"), 10)#  Operator = 10#
+        lexer.setColor(QColor("#60D8EF"), 11)#  Identifier = 11#
         lexer.setColor(QColor("#E1898F"), 12)# CommentBlock = 12
         lexer.setColor(QColor("#E1898F"), 13)#  UnclosedString = 13
         lexer.setColor(QColor("#E1898F"), 14)#  HighlightedIdentifier = 14
@@ -560,116 +558,116 @@ class SimplePythonEditor(QsciScintilla):
         lexer.setDefaultFont(font)
         lexer.setDefaultPaper(QColor("#3c3c3c"))
         lexer.setDefaultColor(QColor("#f9f9f9"))
-        lexer.setColor(QColor("#FFF"), 0)  # Default = 0
-        lexer.setColor(QColor("#FE6905"), 1)  # Tag = 1
-        lexer.setColor(QColor("#FE6905"), 2)  # UnknownTag = 2
-        lexer.setColor(QColor("#FECC05"), 3)  # Attribute = 3
-        lexer.setColor(QColor("#A9FE05"), 4)  # UnknownAttribute = 4
-        lexer.setColor(QColor("#88E22B"), 5)  # HTMLNumber = 5
-        lexer.setColor(QColor("#8CDCFE"), 6)  # HTMLDoubleQuotedString = 6
-        lexer.setColor(QColor("#05C6FE"), 7)  # HTMLSingleQuotedString = 7
-        lexer.setColor(QColor("#058CFE"), 8)  # OtherInTag = 8
-        lexer.setColor(QColor("#05C6FE"), 9)  # HTMLComment = 9
-        lexer.setColor(QColor("#FECC05"), 10)  # Entity = 10
-        lexer.setColor(QColor("#05C6FE"), 11)  # XMLTagEnd = 11
-        lexer.setColor(QColor("#AC7DCE"), 12)  # XMLStart = 12
-        lexer.setColor(QColor("#88E22B"), 13)  # XMLEnd = 13
-        lexer.setColor(QColor("#E7DB74"), 14)  # Script = 14
-        lexer.setColor(QColor("#60D8EF"), 15)  # ASPAtStart = 15
-        lexer.setColor(QColor("#B36932"), 16)  # ASPStart = 16
-        lexer.setColor(QColor("#519ABA"), 17)  # CDATA = 17
-        lexer.setColor(QColor("#CDD100"), 18)  # PHPStart = 18
-        lexer.setColor(QColor("#05C6FE"), 19)  # HTMLValue = 19
-        lexer.setColor(QColor("#CE9172"), 20)  # ASPXCComment = 20
-        lexer.setColor(QColor("#EC5166"), 21)  # SGMLDefault = 21
-        lexer.setColor(QColor("#C5A84F"), 22)  # SGMLCommand = 22
-        lexer.setColor(QColor("#B9644F"), 23)  # SGMLParameter = 23
-        lexer.setColor(QColor("#C3485C"), 24)  # SGMLDoubleQuotedString = 24
-        lexer.setColor(QColor("#498B60"), 25)  # SGMLSingleQuotedString = 25
-        lexer.setColor(QColor("#E1898F"), 26)  # SGMLError = 26
-        lexer.setColor(QColor("#FEFB02"), 27)  # SGMLSpecial = 27
-        lexer.setColor(QColor("#FE6905"), 28)  # SGMLEntity = 28
-        lexer.setColor(QColor("#FECC05"), 29)  # SGMLComment = 29
-        lexer.setColor(QColor("#A9FE05"), 30)  # SGMLParameterComment = 30
-        lexer.setColor(QColor("#88E22B"), 31)  # SGMLBlockDefault = 31
-        lexer.setColor(QColor("#FFF"), 40)  # JavaScriptStart = 40
-        lexer.setColor(QColor("#FFFFFF"), 41)  # JavaScriptDefault = 41
-        lexer.setColor(QColor("#FEFB02"), 42)  # JavaScriptComment = 42
-        lexer.setColor(QColor("#FE6905"), 43)  # JavaScriptCommentLine = 43
-        lexer.setColor(QColor("#FECC05"), 44)  # JavaScriptCommentDoc = 44
-        lexer.setColor(QColor("#A9FE05"), 45)  # JavaScriptNumber = 45
-        lexer.setColor(QColor("#88E22B"), 46)  # JavaScriptWord = 46
-        lexer.setColor(QColor("#8CDCFE"), 47)  # JavaScriptKeyword = 47
-        lexer.setColor(QColor("#05C6FE"), 48)  # JavaScriptDoubleQuotedString = 48
-        lexer.setColor(QColor("#058CFE"), 49)  # JavaScriptSingleQuotedString = 49
-        lexer.setColor(QColor("#05C6FE"), 50)  # JavaScriptSymbol = 50
-        lexer.setColor(QColor("#FECC05"), 51)  # JavaScriptUnclosedString = 51
-        lexer.setColor(QColor("#FFF"), 52)  # JavaScriptRegex = 52
-        lexer.setColor(QColor("#05C6FE"), 55)  # ASPJavaScriptStart = 55
-        lexer.setColor(QColor("#AC7DCE"), 56)  # ASPJavaScriptDefault = 56
-        lexer.setColor(QColor("#88E22B"), 57)  # ASPJavaScriptComment = 57
-        lexer.setColor(QColor("#E7DB74"), 58)  # ASPJavaScriptCommentLine = 58
-        lexer.setColor(QColor("#60D8EF"), 59)  # ASPJavaScriptCommentDoc = 59
-        lexer.setColor(QColor("#B36932"), 60)  # ASPJavaScriptNumber = 60
-        lexer.setColor(QColor("#519ABA"), 61)  # ASPJavaScriptWord = 61
-        lexer.setColor(QColor("#CDD100"), 62)  # ASPJavaScriptKeyword = 62
-        lexer.setColor(QColor("#05C6FE"), 63)  # ASPJavaScriptDoubleQuotedString = 63
-        lexer.setColor(QColor("#CE9172"), 54)  # ASPJavaScriptSingleQuotedString = 64
-        lexer.setColor(QColor("#EC5166"), 65)  # ASPJavaScriptSymbol = 65
-        lexer.setColor(QColor("#C5A84F"), 66)  # ASPJavaScriptUnclosedString = 66
-        lexer.setColor(QColor("#B9644F"), 67)  # ASPJavaScriptRegex = 67
-        lexer.setColor(QColor("#C3485C"), 70)  # VBScriptStart = 70
-        lexer.setColor(QColor("#498B60"), 71)  # VBScriptDefault = 71
-        lexer.setColor(QColor("#E1898F"), 72)  # VBScriptComment = 72
-        lexer.setColor(QColor("#FEFB02"), 73)  # VBScriptNumber = 73
-        lexer.setColor(QColor("#FE6905"), 74)  # VBScriptKeyword = 74
-        lexer.setColor(QColor("#FECC05"), 75)  # VBScriptString = 75
-        lexer.setColor(QColor("#A9FE05"), 76)  # VBScriptIdentifier = 76
-        lexer.setColor(QColor("#88E22B"), 77)  # VBScriptUnclosedString = 77
-        lexer.setColor(QColor("#8CDCFE"), 80)  # ASPVBScriptStart = 80
-        lexer.setColor(QColor("#05C6FE"), 81)  # ASPVBScriptDefault = 81
-        lexer.setColor(QColor("#058CFE"), 82)  # ASPVBScriptComment = 82
-        lexer.setColor(QColor("#05C6FE"), 83)  # ASPVBScriptNumber = 83
-        lexer.setColor(QColor("#FECC05"), 84)  # ASPVBScriptKeyword = 84
-        lexer.setColor(QColor("#05C6FE"), 85)  # ASPVBScriptString = 85
-        lexer.setColor(QColor("#AC7DCE"), 86)  # ASPVBScriptIdentifier = 86
-        lexer.setColor(QColor("#88E22B"), 87)  # ASPVBScriptUnclosedString = 87
-        lexer.setColor(QColor("#E7DB74"), 90)  # PythonStart = 90
-        lexer.setColor(QColor("#60D8EF"), 91)  # PythonDefault = 91
-        lexer.setColor(QColor("#B36932"), 92)  # PythonComment = 92
-        lexer.setColor(QColor("#519ABA"), 93)  # PythonNumber = 93
-        lexer.setColor(QColor("#CDD100"), 94)  # PythonDoubleQuotedString = 94
-        lexer.setColor(QColor("#05C6FE"), 95)  # PythonSingleQuotedString = 95
-        lexer.setColor(QColor("#CE9172"), 96)  # PythonKeyword = 96
-        lexer.setColor(QColor("#EC5166"), 97)  # PythonTripleSingleQuotedString = 97
-        lexer.setColor(QColor("#C5A84F"), 98)  # PythonTripleDoubleQuotedString = 98
-        lexer.setColor(QColor("#B9644F"), 99)  # PythonClassName = 99
-        lexer.setColor(QColor("#C3485C"), 100)  # PythonFunctionMethodName = 100
-        lexer.setColor(QColor("#498B60"), 101)  # PythonOperator = 101
-        lexer.setColor(QColor("#FEFB02"), 102)  # PythonIdentifier = 102
-        lexer.setColor(QColor("#FE6905"), 105)  # ASPPythonStart = 105
-        lexer.setColor(QColor("#FECC05"), 106)  # ASPPythonDefault = 106
-        lexer.setColor(QColor("#A9FE05"), 107)  # ASPPythonComment = 107
-        lexer.setColor(QColor("#88E22B"), 108)  # ASPPythonNumber = 108
-        lexer.setColor(QColor("#8CDCFE"), 109)  # ASPPythonDoubleQuotedString = 109
-        lexer.setColor(QColor("#05C6FE"), 110)  # ASPPythonSingleQuotedString = 110
-        lexer.setColor(QColor("#058CFE"), 111)  # ASPPythonKeyword = 111
-        lexer.setColor(QColor("#05C6FE"), 112)  # ASPPythonTripleSingleQuotedString = 112
-        lexer.setColor(QColor("#FECC05"), 113)  # ASPPythonTripleDoubleQuotedString = 113
-        lexer.setColor(QColor("#05C6FE"), 114)  # ASPPythonClassName = 114
-        lexer.setColor(QColor("#AC7DCE"), 115)  # ASPPythonFunctionMethodName = 115
-        lexer.setColor(QColor("#88E22B"), 116)  # ASPPythonOperator = 116
-        lexer.setColor(QColor("#E7DB74"), 117)  # ASPPythonIdentifier = 117
-        lexer.setColor(QColor("#60D8EF"), 118)  # PHPDefault = 118
-        lexer.setColor(QColor("#B36932"), 119)  # PHPDoubleQuotedString = 119
-        lexer.setColor(QColor("#519ABA"), 120)  # PHPSingleQuotedString = 120
-        lexer.setColor(QColor("#CDD100"), 121)  # PHPKeyword = 121
-        lexer.setColor(QColor("#05C6FE"), 122)  # PHPNumber = 122
-        lexer.setColor(QColor("#CE9172"), 123)  # PHPVariable = 123
-        lexer.setColor(QColor("#EC5166"), 124)  # PHPComment = 124
-        lexer.setColor(QColor("#C5A84F"), 125)  # PHPCommentLine = 125
-        lexer.setColor(QColor("#B9644F"), 126)  # PHPDoubleQuotedVariable = 126
-        lexer.setColor(QColor("#C3485C"), 127)  # PHPOperator = 127
+        lexer.setColor(QColor("#A69C9C"), 0)  # Default = 0
+        lexer.setColor(QColor("#A95151"), 1)  # Tag = 1
+        lexer.setColor(QColor("#6C51A9"), 2)  # UnknownTag = 2
+        lexer.setColor(QColor("#BDA5F4"), 3)  # Attribute = 3
+        lexer.setColor(QColor("#46939C"), 4)  # UnknownAttribute = 4
+        lexer.setColor(QColor("#C5BA40"), 5)  # HTMLNumber = 5
+        lexer.setColor(QColor("#296C39"), 6)  # HTMLDoubleQuotedString = 6
+        lexer.setColor(QColor("#96A82F"), 7)  # HTMLSingleQuotedString = 7
+        lexer.setColor(QColor("#A87F2F"), 8)  # OtherInTag = 8
+        lexer.setColor(QColor("#FDD68A"), 9)  # HTMLComment = 9
+        lexer.setColor(QColor("#E1898F"), 10)  # Entity = 10
+        lexer.setColor(QColor("#E1898F"), 11)  # XMLTagEnd = 11
+        lexer.setColor(QColor("#E1898F"), 12)  # XMLStart = 12
+        lexer.setColor(QColor("#E1898F"), 13)  # XMLEnd = 13
+        lexer.setColor(QColor("#E1898F"), 14)  # Script = 14
+        lexer.setColor(QColor("#E1898F"), 15)  # ASPAtStart = 15
+        lexer.setColor(QColor("#E1898F"), 16)  # ASPStart = 16
+        lexer.setColor(QColor("#E1898F"), 17)  # CDATA = 17
+        lexer.setColor(QColor("#E1898F"), 18)  # PHPStart = 18
+        lexer.setColor(QColor("#E1898F"), 19)  # HTMLValue = 19
+        lexer.setColor(QColor("#E1898F"), 20)  # ASPXCComment = 20
+        lexer.setColor(QColor("#E1898F"), 21)  # SGMLDefault = 21
+        lexer.setColor(QColor("#E1898F"), 22)  # SGMLCommand = 22
+        lexer.setColor(QColor("#A69C9C"), 23)  # SGMLParameter = 23
+        lexer.setColor(QColor("#A69C9C"), 24)  # SGMLDoubleQuotedString = 24
+        lexer.setColor(QColor("#A69C9C"), 25)  # SGMLSingleQuotedString = 25
+        lexer.setColor(QColor("#A69C9C"), 26)  # SGMLError = 26
+        lexer.setColor(QColor("#A69C9C"), 27)  # SGMLSpecial = 27
+        lexer.setColor(QColor("#A69C9C"), 28)  # SGMLEntity = 28
+        lexer.setColor(QColor("#A69C9C"), 29)  # SGMLComment = 29
+        lexer.setColor(QColor("#A69C9C"), 30)  # SGMLParameterComment = 30
+        lexer.setColor(QColor("#A69C9C"), 31)  # SGMLBlockDefault = 31
+        lexer.setColor(QColor("#A69C9C"), 40)  # JavaScriptStart = 40
+        lexer.setColor(QColor("#A69C9C"), 41)  # JavaScriptDefault = 41
+        lexer.setColor(QColor("#A69C9C"), 42)  # JavaScriptComment = 42
+        lexer.setColor(QColor("#A69C9C"), 43)  # JavaScriptCommentLine = 43
+        lexer.setColor(QColor("#A69C9C"), 44)  # JavaScriptCommentDoc = 44
+        lexer.setColor(QColor("#A69C9C"), 45)  # JavaScriptNumber = 45
+        lexer.setColor(QColor("#A69C9C"), 46)  # JavaScriptWord = 46
+        lexer.setColor(QColor("#A69C9C"), 47)  # JavaScriptKeyword = 47
+        lexer.setColor(QColor("#A69C9C"), 48)  # JavaScriptDoubleQuotedString = 48
+        lexer.setColor(QColor("#A69C9C"), 49)  # JavaScriptSingleQuotedString = 49
+        lexer.setColor(QColor("#A69C9C"), 50)  # JavaScriptSymbol = 50
+        lexer.setColor(QColor("#A69C9C"), 51)  # JavaScriptUnclosedString = 51
+        lexer.setColor(QColor("#A69C9C"), 52)  # JavaScriptRegex = 52
+        lexer.setColor(QColor("#A69C9C"), 55)  # ASPJavaScriptStart = 55
+        lexer.setColor(QColor("#A69C9C"), 56)  # ASPJavaScriptDefault = 56
+        lexer.setColor(QColor("#A69C9C"), 57)  # ASPJavaScriptComment = 57
+        lexer.setColor(QColor("#A69C9C"), 58)  # ASPJavaScriptCommentLine = 58
+        lexer.setColor(QColor("#A69C9C"), 59)  # ASPJavaScriptCommentDoc = 59
+        lexer.setColor(QColor("#A69C9C"), 60)  # ASPJavaScriptNumber = 60
+        lexer.setColor(QColor("#A69C9C"), 61)  # ASPJavaScriptWord = 61
+        lexer.setColor(QColor("#A69C9C"), 62)  # ASPJavaScriptKeyword = 62
+        lexer.setColor(QColor("#A69C9C"), 63)  # ASPJavaScriptDoubleQuotedString = 63
+        lexer.setColor(QColor("#A69C9C"), 54)  # ASPJavaScriptSingleQuotedString = 64
+        lexer.setColor(QColor("#A69C9C"), 65)  # ASPJavaScriptSymbol = 65
+        lexer.setColor(QColor("#A69C9C"), 66)  # ASPJavaScriptUnclosedString = 66
+        lexer.setColor(QColor("#A69C9C"), 67)  # ASPJavaScriptRegex = 67
+        lexer.setColor(QColor("#A69C9C"), 70)  # VBScriptStart = 70
+        lexer.setColor(QColor("#A69C9C"), 71)  # VBScriptDefault = 71
+        lexer.setColor(QColor("#A69C9C"), 72)  # VBScriptComment = 72
+        lexer.setColor(QColor("#A69C9C"), 73)  # VBScriptNumber = 73
+        lexer.setColor(QColor("#A69C9C"), 74)  # VBScriptKeyword = 74
+        lexer.setColor(QColor("#A69C9C"), 75)  # VBScriptString = 75
+        lexer.setColor(QColor("#A69C9C"), 76)  # VBScriptIdentifier = 76
+        lexer.setColor(QColor("#A69C9C"), 77)  # VBScriptUnclosedString = 77
+        lexer.setColor(QColor("#A69C9C"), 80)  # ASPVBScriptStart = 80
+        lexer.setColor(QColor("#A69C9C"), 81)  # ASPVBScriptDefault = 81
+        lexer.setColor(QColor("#A69C9C"), 82)  # ASPVBScriptComment = 82
+        lexer.setColor(QColor("#A69C9C"), 83)  # ASPVBScriptNumber = 83
+        lexer.setColor(QColor("#A69C9C"), 84)  # ASPVBScriptKeyword = 84
+        lexer.setColor(QColor("#A69C9C"), 85)  # ASPVBScriptString = 85
+        lexer.setColor(QColor("#A69C9C"), 86)  # ASPVBScriptIdentifier = 86
+        lexer.setColor(QColor("#A69C9C"), 87)  # ASPVBScriptUnclosedString = 87
+        lexer.setColor(QColor("#A69C9C"), 90)  # PythonStart = 90
+        lexer.setColor(QColor("#A69C9C"), 91)  # PythonDefault = 91
+        lexer.setColor(QColor("#A69C9C"), 92)  # PythonComment = 92
+        lexer.setColor(QColor("#A69C9C"), 93)  # PythonNumber = 93
+        lexer.setColor(QColor("#A69C9C"), 94)  # PythonDoubleQuotedString = 94
+        lexer.setColor(QColor("#A69C9C"), 95)  # PythonSingleQuotedString = 95
+        lexer.setColor(QColor("#A69C9C"), 96)  # PythonKeyword = 96
+        lexer.setColor(QColor("#A69C9C"), 97)  # PythonTripleSingleQuotedString = 97
+        lexer.setColor(QColor("#A69C9C"), 98)  # PythonTripleDoubleQuotedString = 98
+        lexer.setColor(QColor("#A69C9C"), 99)  # PythonClassName = 99
+        lexer.setColor(QColor("#A69C9C"), 100)  # PythonFunctionMethodName = 100
+        lexer.setColor(QColor("#A69C9C"), 101)  # PythonOperator = 101
+        lexer.setColor(QColor("#A69C9C"), 102)  # PythonIdentifier = 102
+        lexer.setColor(QColor("#A69C9C"), 105)  # ASPPythonStart = 105
+        lexer.setColor(QColor("#A69C9C"), 106)  # ASPPythonDefault = 106
+        lexer.setColor(QColor("#A69C9C"), 107)  # ASPPythonComment = 107
+        lexer.setColor(QColor("#A69C9C"), 108)  # ASPPythonNumber = 108
+        lexer.setColor(QColor("#A69C9C"), 109)  # ASPPythonDoubleQuotedString = 109
+        lexer.setColor(QColor("#A69C9C"), 110)  # ASPPythonSingleQuotedString = 110
+        lexer.setColor(QColor("#A69C9C"), 111)  # ASPPythonKeyword = 111
+        lexer.setColor(QColor("#A69C9C"), 112)  # ASPPythonTripleSingleQuotedString = 112
+        lexer.setColor(QColor("#A69C9C"), 113)  # ASPPythonTripleDoubleQuotedString = 113
+        lexer.setColor(QColor("#A69C9C"), 114)  # ASPPythonClassName = 114
+        lexer.setColor(QColor("#A69C9C"), 115)  # ASPPythonFunctionMethodName = 115
+        lexer.setColor(QColor("#A69C9C"), 116)  # ASPPythonOperator = 116
+        lexer.setColor(QColor("#A69C9C"), 117)  # ASPPythonIdentifier = 117
+        lexer.setColor(QColor("#A69C9C"), 118)  # PHPDefault = 118
+        lexer.setColor(QColor("#A69C9C"), 119)  # PHPDoubleQuotedString = 119
+        lexer.setColor(QColor("#A69C9C"), 120)  # PHPSingleQuotedString = 120
+        lexer.setColor(QColor("#A69C9C"), 121)  # PHPKeyword = 121
+        lexer.setColor(QColor("#A69C9C"), 122)  # PHPNumber = 122
+        lexer.setColor(QColor("#A69C9C"), 123)  # PHPVariable = 123
+        lexer.setColor(QColor("#A69C9C"), 124)  # PHPComment = 124
+        lexer.setColor(QColor("#A69C9C"), 125)  # PHPCommentLine = 125
+        lexer.setColor(QColor("#A69C9C"), 126)  # PHPDoubleQuotedVariable = 126
+        lexer.setColor(QColor("#A69C9C"), 127)  # PHPOperator = 127
 
         self.setCaretForegroundColor(QColor("#FFFFFF"))
         my_list = [".", " ", "{","}","[","]","(",")","<",">", ":", ";"]
@@ -891,3 +889,7 @@ class SimplePythonEditor(QsciScintilla):
         self.SendScintilla(QsciScintilla.SCI_SETHSCROLLBAR, 0)
         shortcut_ctrl_space = QShortcut(QKeySequence("Ctrl+Space"), self);
         # self.connect(shortcut_ctrl_space, SIGNAL(activated()), self,SLOT(autoCompleteFromAll()));
+
+
+
+

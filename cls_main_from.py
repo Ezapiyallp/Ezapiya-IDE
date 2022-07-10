@@ -253,3 +253,4 @@ class cls_main_from(QtWidgets.QMainWindow):
         print("breack")
     def watch_action(self):
         print("watch")
+
