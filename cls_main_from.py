@@ -164,13 +164,17 @@ class cls_main_from(QtWidgets.QMainWindow):
         xx.paste()
 
     def select_all_action(self):
-       print("select_all")
-
+        i = self.getActiveTabIndex()
+        xx = self.ui.tabWidget.widget(i)
+        xx.selectAll()
     def undo_action(self):
-        print("undo")
-
+        i = self.getActiveTabIndex()
+        xx = self.ui.tabWidget.widget(i)
+        xx.undo()
     def redo_action(self):
-        print("redo")
+        i = self.getActiveTabIndex()
+        xx = self.ui.tabWidget.widget(i)
+        xx.redo()
 
     def find_actio(self):
         print("find")
