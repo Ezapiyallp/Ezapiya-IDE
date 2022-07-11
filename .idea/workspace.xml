@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4f90978-62e2-4ff4-97de-3e29be78eb33" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Ezapiya-IDE.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Ezapiya-IDE.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04-07-2022_03_37_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_04-07-2022_03_37_PM__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cls_main_from.py" beforeDir="false" afterPath="$PROJECT_DIR$/cls_main_from.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SimplePythonEditor.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimplePythonEditor.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,12 +251,12 @@
       <option name="project" value="LOCAL" />
       <updated>1657105187261</updated>
     </task>
-    <task id="LOCAL-00026" summary="python Done">
-      <created>1657437761603</created>
+    <task id="LOCAL-00026" summary="color code set for c">
+      <created>1657115991668</created>
       <option name="number" value="00026" />
       <option name="presentableId" value="LOCAL-00026" />
       <option name="project" value="LOCAL" />
-      <updated>1657437761603</updated>
+      <updated>1657115991668</updated>
     </task>
     <option name="localTasksCounter" value="27" />
     <servers />
@@ -284,8 +288,8 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/main'" />
     <MESSAGE value="html" />
     <MESSAGE value="lex css xml" />
-    <MESSAGE value="python Done" />
-    <option name="LAST_COMMIT_MESSAGE" value="python Done" />
+    <MESSAGE value="color code set for c" />
+    <option name="LAST_COMMIT_MESSAGE" value="color code set for c" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -294,6 +298,26 @@
           <url>file://$PROJECT_DIR$/cls_main_from.py</url>
           <line>125</line>
           <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SimplePythonEditor.py</url>
+          <line>255</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SimplePythonEditor.py</url>
+          <line>311</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SimplePythonEditor.py</url>
+          <line>316</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SimplePythonEditor.py</url>
+          <line>389</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

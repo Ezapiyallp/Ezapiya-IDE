@@ -276,22 +276,22 @@ class SimplePythonEditor(QsciScintilla):
         lexer.setDefaultFont(font)
         lexer.setDefaultPaper(QColor("#3c3c3c"))
         lexer.setDefaultColor(QColor("#f9f9f9"))
-        lexer.setColor(QColor("#058CFE"), 0)# Default = 0
+        lexer.setColor(QColor("#FFF"), 0)# Default = 0
         lexer.setColor(QColor("#05FE40"), 1)# Comment = 1
-        lexer.setColor(QColor("#FEFB02"), 2)#  Number = 2#
-        lexer.setColor(QColor("#BDA5F4"), 3)#  DoubleQuotedString = 3#
-        lexer.setColor(QColor("#BDA5F4"), 4)# SingleQuotedString = 4#
-        lexer.setColor(QColor("#60D8EF"), 5)#    Keyword = 5#
-        lexer.setColor(QColor("#BDA5F4"), 6)# TripleSingleQuotedString = 6#
-        lexer.setColor(QColor("#BDA5F4"), 7)# TripleDoubleQuotedString = 7#
+        lexer.setColor(QColor("#FFF"), 2)#  Number = 2#
+        lexer.setColor(QColor("#E7DB74"), 3)#  DoubleQuotedString = 3#
+        lexer.setColor(QColor("#B36932"), 4)# SingleQuotedString = 4#
+        lexer.setColor(QColor("#FEFB02"), 5)#    Keyword = 5#
+        lexer.setColor(QColor("#E7DB74"), 6)# TripleSingleQuotedString = 6#
+        lexer.setColor(QColor("#E7DB74"), 7)# TripleDoubleQuotedString = 7#
         lexer.setColor(QColor("#88E22B"), 8)#  ClassName = 8#
         lexer.setColor(QColor("#FDD68A"), 9)#  FunctionMethodName = 9#
-        lexer.setColor(QColor("#60D8EF"), 10)#  Operator = 10#
+        lexer.setColor(QColor("#EC5166"), 10)#  Operator = 10#
         lexer.setColor(QColor("#60D8EF"), 11)#  Identifier = 11#
-        lexer.setColor(QColor("#E1898F"), 12)# CommentBlock = 12
-        lexer.setColor(QColor("#E1898F"), 13)#  UnclosedString = 13
-        lexer.setColor(QColor("#E1898F"), 14)#  HighlightedIdentifier = 14
-        lexer.setColor(QColor("#E1898F"), 15)# Decorator = 15
+        lexer.setColor(QColor("#C5A84F"), 12)# CommentBlock = 12
+        lexer.setColor(QColor("#B9644F"), 13)#  UnclosedString = 13
+        lexer.setColor(QColor("#C3485C"), 14)#  HighlightedIdentifier = 14
+        lexer.setColor(QColor("#498B60"), 15)# Decorator = 15
 
         self.setCaretForegroundColor(QColor("#FFFFFF"))
         my_list = [".", " ", "{","}","[","]","(",")", ":", ";"]
