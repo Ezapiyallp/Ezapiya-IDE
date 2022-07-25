@@ -4,6 +4,7 @@ import sys
 app = QtWidgets.QApplication([])
 main_f = cls_main_from()
 main_f.setWindowState(QtCore.Qt.WindowMaximized)
+#dfdf
 main_f.show()
 main_f.setWindowTitle("Ezapiya-IDE")
 sys.exit(app.exec_())
