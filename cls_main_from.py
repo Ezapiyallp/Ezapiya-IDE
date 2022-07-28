@@ -1,3 +1,6 @@
+import subprocess
+import os
+from subprocess import Popen, PIPE
 from PyQt5 import QtWidgets
 from PyQt5.QtCore import QSize
 from PyQt5.QtWidgets import QFileDialog
@@ -232,7 +235,26 @@ class cls_main_from(QtWidgets.QMainWindow):
 
         ##### Run Mune All Action
     def compile_action(self):
-        pass
+        i = self.getActiveTabIndex()
+        xx = self.ui.tabWidget.widget(i)
+
+        xfn=xx.getFullFileName()
+
+        print("xfn is" +xfn)
+        #tfileName = xfn.split('/')
+        #fileName = tfileName[len(tfileName) - 1]
+
+        yfn=xfn.replace(".c",".exe")
+        print("yfn is" + yfn)
+        os.environ["gcc"] = r"C:\Users\vinit\AppData\Roaming\Ezapiya\MinGW\bin\gcc.exe"
+        p = Popen(['gcc', '-g', xfn, '-o', yfn, '-static'], stdin=PIPE,
+                  stdout=PIPE, stderr=PIPE)
+        output, err = p.communicate(b"input data that is passed to subprocess' stdin")
+        rc = p.returncode
+        print("output " + str(output))
+        print("err " + str(err))
+
+
 
     def run_action(self):
         pass
