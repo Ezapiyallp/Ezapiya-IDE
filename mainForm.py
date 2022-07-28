@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'D:\python_test\Ezapiya-IDE\mainForm.ui'
+# Form implementation generated from reading ui file 'D:\Ezapiya-IDE_in_python\mainForm.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #
@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(700, 600)
+        MainWindow.resize(738, 773)
         MainWindow.setStyleSheet("background-color: rgb(76, 76, 76);")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -33,7 +33,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addWidget(self.tabWidget)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 700, 32))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 738, 33))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
@@ -99,26 +99,56 @@ class Ui_MainWindow(object):
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Highlight, brush)
         self.menubar.setPalette(palette)
-        self.menubar.setStyleSheet("background-color: rgb(64, 64, 64);\n"
+        self.menubar.setStyleSheet("QMenuBar {\n"
+"background-color: rgb(64, 64, 64);\n"
 "color: rgb(255, 255, 255);\n"
 "selection-background-color: rgb(58, 58, 58);\n"
-"font: 75 16pt \"Calibri\";")
+"font: 75 16pt \"Calibri\";\n"
+"}\n"
+"QMenuBar::item {\n"
+"color : white;\n"
+"margin-top:4px;\n"
+"spacing: 3px;\n"
+"padding: 1px 10px;\n"
+"background: transparent;\n"
+"border-radius: 4px;\n"
+"}\n"
+"\n"
+"\n"
+"QMenuBar::item:hover {\n"
+"background: blue;\n"
+"color:red;\n"
+"}\n"
+"")
         self.menubar.setObjectName("menubar")
         self.menuFile = QtWidgets.QMenu(self.menubar)
+        self.menuFile.setStyleSheet("QMenu{\n"
+"color: rgb(255, 255, 255);\n"
+"}\n"
+"QMenu::hover{\n"
+"color: #000;\n"
+"}")
         self.menuFile.setObjectName("menuFile")
         self.menuEdit = QtWidgets.QMenu(self.menubar)
+        self.menuEdit.setStyleSheet("color: rgb(255, 255, 255);")
         self.menuEdit.setObjectName("menuEdit")
         self.menuRun = QtWidgets.QMenu(self.menubar)
+        self.menuRun.setStyleSheet("color: rgb(255, 255, 255);")
         self.menuRun.setObjectName("menuRun")
         self.menuDebuge = QtWidgets.QMenu(self.menubar)
+        self.menuDebuge.setStyleSheet("color: rgb(255, 255, 255);")
         self.menuDebuge.setObjectName("menuDebuge")
         self.menuSetting = QtWidgets.QMenu(self.menubar)
+        self.menuSetting.setStyleSheet("color: rgb(255, 255, 255);")
         self.menuSetting.setObjectName("menuSetting")
         self.menuAbout_Us = QtWidgets.QMenu(self.menubar)
+        self.menuAbout_Us.setStyleSheet("color: rgb(255, 255, 255);")
         self.menuAbout_Us.setObjectName("menuAbout_Us")
         self.menuHelp = QtWidgets.QMenu(self.menubar)
+        self.menuHelp.setStyleSheet("color: rgb(255, 255, 255);")
         self.menuHelp.setObjectName("menuHelp")
         self.menuView = QtWidgets.QMenu(self.menubar)
+        self.menuView.setStyleSheet("color: rgb(255, 255, 255);")
         self.menuView.setObjectName("menuView")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
