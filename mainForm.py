@@ -191,7 +191,7 @@ class Ui_MainWindow(object):
         self.toolBar.setObjectName("toolBar")
         MainWindow.addToolBar(QtCore.Qt.TopToolBarArea, self.toolBar)
         self.dockWidget_message = QtWidgets.QDockWidget(MainWindow)
-        self.dockWidget_message.setMinimumSize(QtCore.QSize(76, 150))
+        self.dockWidget_message.setMinimumSize(QtCore.QSize(89, 150))
         self.dockWidget_message.setStyleSheet("QDockWidget\n"
 "{\n"
 "background : lightgreen;\n"
@@ -213,6 +213,11 @@ class Ui_MainWindow(object):
         self.dockWidgetContents_message.setObjectName("dockWidgetContents_message")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.dockWidgetContents_message)
         self.verticalLayout.setObjectName("verticalLayout")
+        self.txtmessage = QtWidgets.QTextEdit(self.dockWidgetContents_message)
+        self.txtmessage.setStyleSheet("color: rgb(255, 255, 255);\n"
+"font: 11pt \"MS Shell Dlg 2\";")
+        self.txtmessage.setObjectName("txtmessage")
+        self.verticalLayout.addWidget(self.txtmessage)
         self.dockWidget_message.setWidget(self.dockWidgetContents_message)
         MainWindow.addDockWidget(QtCore.Qt.DockWidgetArea(8), self.dockWidget_message)
         self.dockWidget_tools = QtWidgets.QDockWidget(MainWindow)

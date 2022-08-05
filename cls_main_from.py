@@ -3,7 +3,7 @@ import os
 from subprocess import Popen, PIPE
 from PyQt5 import QtWidgets
 from PyQt5.QtCore import QSize
-from PyQt5.QtWidgets import QFileDialog
+from PyQt5.QtWidgets import QFileDialog, QMessageBox
 import sys
 from PyQt5.QtGui import QPixmap
 from mainForm import Ui_MainWindow
@@ -66,6 +66,7 @@ class cls_main_from(QtWidgets.QMainWindow):
         self.ui.dockWidget_tools.setVisible(False)
         self.ui.dockWidget_project.setVisible(False)
         self.ui.dockWidget_preproty.setVisible(False)
+        self.erronOnCompial=False
     def closeTab (self, currentIndex):
         self.ui.tabWidget.removeTab(currentIndex)
         self.tabCount = self.tabCount - 1
@@ -132,11 +133,14 @@ class cls_main_from(QtWidgets.QMainWindow):
             except Exception as e:
                 print(e)
         else:
-            fileName = QFileDialog.getSaveFileName()
-            xx.saveFile(fileName)
-            tfileName = fileName[0].split('/')
-            fileName = tfileName[len(tfileName) - 1]
-            self.ui.tabWidget.setTabText(self.getActiveTabIndex(), fileName)
+            try:
+                fileName = QFileDialog.getSaveFileName()
+                xx.saveFile(fileName)
+                tfileName = fileName[0].split('/')
+                fileName = tfileName[len(tfileName) - 1]
+                self.ui.tabWidget.setTabText(self.getActiveTabIndex(), fileName)
+            except Exception as e:
+                print(e)
 
     def save_as_action(self):
         i = self.getActiveTabIndex()
@@ -235,29 +239,92 @@ class cls_main_from(QtWidgets.QMainWindow):
 
         ##### Run Mune All Action
     def compile_action(self):
+
+        self.erronOnCompial=True
         i = self.getActiveTabIndex()
         xx = self.ui.tabWidget.widget(i)
-
-        xfn=xx.getFullFileName()
-
-        print("xfn is" +xfn)
-        #tfileName = xfn.split('/')
-        #fileName = tfileName[len(tfileName) - 1]
-
-        yfn=xfn.replace(".c",".exe")
-        print("yfn is" + yfn)
-        os.environ["gcc"] = r"C:\Users\vinit\AppData\Roaming\Ezapiya\MinGW\bin\gcc.exe"
-        p = Popen(['gcc', '-g', xfn, '-o', yfn, '-static'], stdin=PIPE,
-                  stdout=PIPE, stderr=PIPE)
-        output, err = p.communicate(b"input data that is passed to subprocess' stdin")
-        rc = p.returncode
-        print("output " + str(output))
-        print("err " + str(err))
+        SaveStatus=xx.getSaveStatus()
+        if SaveStatus=="Yes":
+            xfn=xx.getFullFileName()
+            print("xfn is" +xfn)
+            extentions = xfn.split('.')
+            extention = extentions[len(extentions) - 1]
+            if extention=='c':
+                yfn=xfn.replace(".c",".exe")
+                print("yfn is" + yfn)
+                os.environ["gcc"] = r"C:\Users\vinit\AppData\Roaming\Ezapiya\MinGW\bin\gcc.exe"
+                p = Popen(['gcc', '-g', xfn, '-o', yfn, '-static'], stdin=PIPE,
+                      stdout=PIPE, stderr=PIPE)
+                output, err = p.communicate()
+                rc = p.returncode
+                output=output.decode("utf-8")
+                err = err.decode("utf-8")
+                print("output " + str(output))
+                print("err " + str(err))
+                self.ui.txtmessage.setText(str(output)+str(err))
+                if str(err)=="":
+                    self.erronOnCompial=False
+                else:
+                    self.erronOnCompial=True
+            if extention == 'cpp' or extention == 'c++' :
+                yfn = xfn.replace(".cpp", ".exe")
+                print("yfn is" + yfn)
+                os.environ["g++"] = r"C:\Users\vinit\AppData\Roaming\Ezapiya\MinGW\bin\g++.exe"
+                p = Popen(['g++', '-g', xfn, '-o', yfn, '-static'], stdin=PIPE,
+                          stdout=PIPE, stderr=PIPE)
+                output, err = p.communicate()
+                rc = p.returncode
+                output = output.decode("utf-8")
+                err = err.decode("utf-8")
+                print("output " + str(output))
+                print("err " + str(err))
+                self.ui.txtmessage.setText(str(output) + str(err))
+                if str(err) == "":
+                    self.erronOnCompial = False
+                else:
+                    self.erronOnCompial = True
+        if SaveStatus=="No":
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Information)
+            msg.setText("File is Not Save. Do you want to save this file")
+            msg.setWindowTitle("Ezapiya IDE")
+            msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+            #msg.buttonClicked.connect(self.msgbtn)
+            retval = msg.exec_()
+            if retval == QMessageBox.Yes :
+                self.savefile_actoin()
 
 
 
     def run_action(self):
-        pass
+        self.compile_action()
+        if self.erronOnCompial==False:
+            i = self.getActiveTabIndex()
+            xx = self.ui.tabWidget.widget(i)
+            xfn = xx.getFullFileName()
+            file_path=os.path.dirname(os.path.abspath(xfn))
+            fileNames = xfn.split('/')
+            fileName = fileNames[len(fileNames) - 1]
+
+            extentions = fileName.split('.')
+            finalFileName = extentions[len(extentions) - 2]
+
+            output_exe=file_path+"\\"+finalFileName+".exe"
+
+            appDataPath = os.getenv('APPDATA')
+            CCpath = os.path.join(appDataPath, "Ezapiya")
+
+            data_for_batch_file = "@ECHO OFF \n"
+            data_for_batch_file = data_for_batch_file + "cd " + file_path + "\n"
+            data_for_batch_file = data_for_batch_file + "\"" + output_exe + "\"\n"
+            data_for_batch_file = data_for_batch_file + "cd " + CCpath+"\n"
+            data_for_batch_file = data_for_batch_file + "\nstop_.exe"
+            batFileName=CCpath+"\\run.bat"
+            f = open(batFileName, "w")
+            f.write(data_for_batch_file)
+            f.close()
+            p = subprocess.Popen(batFileName, creationflags=subprocess.CREATE_NEW_CONSOLE)
+
 
     def compile_and_run_action(self):
         pass

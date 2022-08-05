@@ -524,7 +524,7 @@ color: #000;
   <widget class="QDockWidget" name="dockWidget_message">
    <property name="minimumSize">
     <size>
-     <width>76</width>
+     <width>89</width>
      <height>150</height>
     </size>
    </property>
@@ -557,7 +557,16 @@ background : darkgreen;
     <number>8</number>
    </attribute>
    <widget class="QWidget" name="dockWidgetContents_message">
-    <layout class="QVBoxLayout" name="verticalLayout"/>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QTextEdit" name="txtmessage">
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);
+font: 11pt &quot;MS Shell Dlg 2&quot;;</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QDockWidget" name="dockWidget_tools">
