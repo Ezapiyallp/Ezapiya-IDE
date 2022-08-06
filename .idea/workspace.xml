@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f4f90978-62e2-4ff4-97de-3e29be78eb33" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/stop_.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cls_main_from.py" beforeDir="false" afterPath="$PROJECT_DIR$/cls_main_from.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainForm.py" beforeDir="false" afterPath="$PROJECT_DIR$/mainForm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainForm.ui" beforeDir="false" afterPath="$PROJECT_DIR$/mainForm.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -296,7 +292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659510077440</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="cpp run">
+      <created>1659709470563</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1659709470563</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -330,7 +333,8 @@
     <MESSAGE value="color code set for c" />
     <MESSAGE value="sdsd" />
     <MESSAGE value="add MinGW" />
-    <option name="LAST_COMMIT_MESSAGE" value="add MinGW" />
+    <MESSAGE value="cpp run" />
+    <option name="LAST_COMMIT_MESSAGE" value="cpp run" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
