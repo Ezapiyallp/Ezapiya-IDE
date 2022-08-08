@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(404, 329)
+        MainWindow.resize(459, 455)
         MainWindow.setStyleSheet("QLabel{\n"
 "font: 75 12pt \"MS Shell Dlg 2\";\n"
 "}\n"
@@ -24,7 +24,7 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.layoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.layoutWidget.setGeometry(QtCore.QRect(20, 240, 349, 29))
+        self.layoutWidget.setGeometry(QtCore.QRect(20, 420, 349, 29))
         self.layoutWidget.setObjectName("layoutWidget")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.layoutWidget)
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
@@ -36,8 +36,13 @@ class Ui_MainWindow(object):
         self.btncopy.setObjectName("btncopy")
         self.horizontalLayout.addWidget(self.btncopy)
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(284, 280, 91, 30))
+        self.pushButton.setGeometry(QtCore.QRect(380, 420, 71, 30))
         self.pushButton.setObjectName("pushButton")
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(30, 0, 421, 421))
+        self.label_2.setText("")
+        self.label_2.setPixmap(QtGui.QPixmap("E:/eZapiya/logo/IDE_Logo.png"))
+        self.label_2.setObjectName("label_2")
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -50,3 +55,4 @@ class Ui_MainWindow(object):
         self.label.setText(_translate("MainWindow", "GCC Is Not Found in AppData Folder "))
         self.btncopy.setText(_translate("MainWindow", "Install"))
         self.pushButton.setText(_translate("MainWindow", "Close"))
+

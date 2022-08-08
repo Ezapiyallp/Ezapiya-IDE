@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>404</width>
-    <height>329</height>
+    <width>459</width>
+    <height>455</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -26,7 +26,7 @@ font: 75 12pt &quot;MS Shell Dlg 2&quot;;
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>240</y>
+      <y>420</y>
       <width>349</width>
       <height>29</height>
      </rect>
@@ -51,9 +51,9 @@ font: 75 12pt &quot;MS Shell Dlg 2&quot;;
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>284</x>
-      <y>280</y>
-      <width>91</width>
+      <x>380</x>
+      <y>420</y>
+      <width>71</width>
       <height>30</height>
      </rect>
     </property>
@@ -61,9 +61,27 @@ font: 75 12pt &quot;MS Shell Dlg 2&quot;;
      <string>Close</string>
     </property>
    </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>0</y>
+      <width>421</width>
+      <height>421</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap>E:/eZapiya/logo/IDE_Logo.png</pixmap>
+    </property>
+   </widget>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="logo_qrc.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>pushButton</sender>

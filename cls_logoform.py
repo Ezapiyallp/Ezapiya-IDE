@@ -30,7 +30,11 @@ class cls_logoform(QtWidgets.QMainWindow):
         print(source_dir)
         print(destination_dir)
         #shutil.copytree(OCpath, CCpath)
+
         self.copytreefun(source_dir, destination_dir)
+        runFile = cwd + "\\stop_.exe"
+        runFileDestination = appDataPath + "\\Ezapiya\\"
+        shutil.copy(runFile, runFileDestination)
         self.ui.pushButton.setEnabled(True)
 
     def copytreefun(obj,srcDir, dst, symlinks=False, ignore=None):
