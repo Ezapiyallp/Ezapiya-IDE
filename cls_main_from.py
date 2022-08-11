@@ -1,11 +1,12 @@
 import subprocess
 import os
 from subprocess import Popen, PIPE
-from PyQt5 import QtWidgets
-from PyQt5.QtCore import QSize
-from PyQt5.QtWidgets import QFileDialog, QMessageBox
+from PyQt5 import QtWidgets, Qt
+from PyQt5.QtWidgets import QFileDialog, QMessageBox, QDialog
 import sys
-from PyQt5.QtGui import QPixmap
+from PyQt5.QtGui import *
+from PyQt5.QtCore import *
+
 from mainForm import Ui_MainWindow
 from SimplePythonEditor import SimplePythonEditor
 import icon_qrc
@@ -116,6 +117,17 @@ class cls_main_from(QtWidgets.QMainWindow):
             self.ui.tabWidget.addTab(ne, fileName)
             self.tabCount = self.tabCount + 1
             self.ui.tabWidget.setCurrentIndex(self.ui.tabWidget.count()-1)
+    def openfile_form_command_line_action(self,fileName):
+        print(fileName)
+        #self.closeTab(0)
+        ne = SimplePythonEditor()
+        fileTital = ne.openFile_form_command_line(fileName)
+        tfileName = fileTital
+        tfileName = tfileName.split('/')
+        fileName = tfileName[len(tfileName) - 1]
+        self.ui.tabWidget.addTab(ne, fileName)
+        self.tabCount = self.tabCount + 1
+        self.ui.tabWidget.setCurrentIndex(self.ui.tabWidget.count() - 1)
 
     def open_folder_action(self):
         pass
@@ -185,6 +197,11 @@ class cls_main_from(QtWidgets.QMainWindow):
 
     def find_actio(self):
         print("find")
+        i = self.getActiveTabIndex()
+        xx = self.ui.tabWidget.widget(i)
+        #SaveStatus = xx.findFunction("class",True)
+        ret = searchDialog(self, "class", xx)
+
 
     def replace_action(self):
         print("replace")
@@ -302,7 +319,9 @@ class cls_main_from(QtWidgets.QMainWindow):
             i = self.getActiveTabIndex()
             xx = self.ui.tabWidget.widget(i)
             xfn = xx.getFullFileName()
+            print("xfn="+str(xfn))
             file_path=os.path.dirname(os.path.abspath(xfn))
+            xfn=xfn.replace('\\','/')
             fileNames = xfn.split('/')
             fileName = fileNames[len(fileNames) - 1]
 
@@ -310,7 +329,7 @@ class cls_main_from(QtWidgets.QMainWindow):
             finalFileName = extentions[len(extentions) - 2]
 
             output_exe=file_path+"\\"+finalFileName+".exe"
-
+            print("output_exe=" + str(output_exe))
             appDataPath = os.getenv('APPDATA')
             CCpath = os.path.join(appDataPath, "Ezapiya")
 
@@ -327,9 +346,41 @@ class cls_main_from(QtWidgets.QMainWindow):
 
 
     def compile_and_run_action(self):
-        pass
+        self.erronOnCompial = True
+        i = self.getActiveTabIndex()
+        xx = self.ui.tabWidget.widget(i)
+        SaveStatus = xx.getSaveStatus()
+        if SaveStatus == "Yes":
+            xfn = xx.getFullFileName()
+            print("xfn is" + xfn)
+            extentions = xfn.split('.')
+            extention = extentions[len(extentions) - 1]
+            if extention == 'py':
+                #os.environ["python"] = r"C:\Users\vinit\AppData\Local\Programs\Python\Python38\python.exe"
+                #p = Popen(['python',  xfn, ], )
+                appDataPath = os.getenv('APPDATA')
+                CCpath = os.path.join(appDataPath, "Ezapiya")
+                data_for_batch_file = "@ECHO OFF \n"
+                data_for_batch_file = data_for_batch_file + "python " + xfn + "\n"
+                data_for_batch_file = data_for_batch_file + "\nstop_.exe"
+                batFileName = CCpath + "\\run.bat"
+                f = open(batFileName, "w")
+                f.write(data_for_batch_file)
+                f.close()
+                p = subprocess.Popen(batFileName, creationflags=subprocess.CREATE_NEW_CONSOLE)
 
-        ###### Debug Mune All Action
+        if SaveStatus == "No":
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Information)
+            msg.setText("File is Not Save. Do you want to save this file")
+            msg.setWindowTitle("Ezapiya IDE")
+            msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+            # msg.buttonClicked.connect(self.msgbtn)
+            retval = msg.exec_()
+            if retval == QMessageBox.Yes:
+                self.savefile_actoin()
+
+    ###### Debug Mune All Action
 
 
     def start_debug_action(self):
@@ -347,3 +398,14 @@ class cls_main_from(QtWidgets.QMainWindow):
     def watch_action(self):
         print("watch")
 
+class searchDialog(QDialog):
+    def __init__(self, parent, ret_text, editor):
+        super(searchDialog, self).__init__(parent)
+        self.parent = parent
+        self.editor = editor
+        #self.setWindowIcon(QIcon("icons/program.svg"))
+        self.setWindowTitle("Search...")
+        self.setWindowModality(Qt.ApplicationModal)
+        self.resize(500, 300)
+        #self.exec_()
+        self.show()

@@ -97,9 +97,51 @@ class SimplePythonEditor(QsciScintilla):
         else:
             self.markerAdd(nline, self.ARROW_MARKER_NUM)
 
+    def findFunction(self,wordToFind,forward):
+        if forward:
+            line, index = self.getSelection()[2:]
+        else:
+            line, index = self.getSelection()[:2]
+
+        self.findFirst(wordToFind, False, False, False, False, True, line, index, False)
+
     def openFile(self,fileName):
         self.fullFileName = fileName[0]
         tfileName=fileName[0]
+        tfileName=tfileName.split('/')
+        self.fileName = tfileName[len(tfileName)-1]
+        ext = self.fileName.split('.')
+        self.fileExtention = ext[len(ext)-1]
+        f = open(self.fullFileName,"r")
+        self.setText(f.read())
+        f.close()
+        self.saveStatus = "Yes"
+
+        if self.fileExtention=="c" or self.fileExtention=="cpp" :
+            self.setCpplexer()
+        if self.fileExtention=="py":
+            self.setPythonlexer()
+        if self.fileExtention == "java":
+            self.setJavalexer()
+        if self.fileExtention == "js":
+            self.setJavaScriptlexer()
+        if self.fileExtention == "cs":
+            self.setCSharplexer()
+        if self.fileExtention == "html" or self.fileExtention == "htm":
+            self.setHtmllexe()
+
+        if self.fileExtention == "sql":
+            self.setSQLlexe()
+        if self.fileExtention == "xml":
+            self.setXMLlexe()
+        if self.fileExtention == "css":
+            self.setCSSlexe()
+
+        return self.fullFileName
+
+    def openFile_form_command_line(self,fileName):
+        self.fullFileName = fileName
+        tfileName=fileName
         tfileName=tfileName.split('/')
         self.fileName = tfileName[len(tfileName)-1]
         ext = self.fileName.split('.')
