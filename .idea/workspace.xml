@@ -343,7 +343,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660575307740</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="find and replec design">
+      <created>1660579422001</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1660579422001</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -411,7 +418,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cls_main_from.py</url>
-          <line>305</line>
+          <line>313</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>

@@ -35,6 +35,14 @@ class cls_main_from(QtWidgets.QMainWindow):
         self.replaceLineEdit.setStyleSheet("color: rgb(255, 255, 255);")
         self.ui.toolBar.insertWidget(self.ui.actionReplace, self.replaceLineEdit)
 
+        self.GotoLineEdit = QLineEdit(self)
+        self.GotoLineEdit.setFixedWidth(100)
+        self.GotoLineEdit.setFixedHeight(30)
+        self.GotoLineEdit.setFont(QFont('SansSerif', 14))
+        self.GotoLineEdit.setStyleSheet("color: rgb(255, 255, 255);")
+        self.ui.toolBar.insertWidget(self.ui.actionGogo, self.GotoLineEdit)
+
+
 
         self.ui.dockWidget_message.setFloating(False)
         self.ui.tabWidget.setTabsClosable(True)
