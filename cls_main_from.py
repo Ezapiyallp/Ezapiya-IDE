@@ -2,7 +2,7 @@ import subprocess
 import os
 from subprocess import Popen, PIPE
 from PyQt5 import QtWidgets, Qt
-from PyQt5.QtWidgets import QFileDialog, QMessageBox, QDialog
+from PyQt5.QtWidgets import QFileDialog, QMessageBox, QDialog,QLineEdit
 import sys
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
@@ -19,6 +19,22 @@ class cls_main_from(QtWidgets.QMainWindow):
         self.tool_box_status = True
         self.project_window_status = True
         self.property_window_status = True
+
+
+        self.findLineEdit = QLineEdit(self)
+        self.findLineEdit.setFixedWidth(200)
+        self.findLineEdit.setFixedHeight(30)
+        self.findLineEdit.setFont(QFont('SansSerif', 14))
+        self.findLineEdit.setStyleSheet("color: rgb(255, 255, 255);")
+        self.ui.toolBar.insertWidget(self.ui.actionFind,self.findLineEdit)
+
+        self.replaceLineEdit = QLineEdit(self)
+        self.replaceLineEdit.setFixedWidth(200)
+        self.replaceLineEdit.setFixedHeight(30)
+        self.replaceLineEdit.setFont(QFont('SansSerif', 14))
+        self.replaceLineEdit.setStyleSheet("color: rgb(255, 255, 255);")
+        self.ui.toolBar.insertWidget(self.ui.actionReplace, self.replaceLineEdit)
+
 
         self.ui.dockWidget_message.setFloating(False)
         self.ui.tabWidget.setTabsClosable(True)
