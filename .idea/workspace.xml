@@ -4,7 +4,6 @@
     <list default="true" id="f4f90978-62e2-4ff4-97de-3e29be78eb33" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cls_main_from.py" beforeDir="false" afterPath="$PROJECT_DIR$/cls_main_from.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainForm.ui" beforeDir="false" afterPath="$PROJECT_DIR$/mainForm.ui" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -337,7 +336,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660230364200</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="find and replec design">
+      <created>1660575307740</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1660575307740</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -377,7 +383,8 @@
     <MESSAGE value="exe" />
     <MESSAGE value="icon" />
     <MESSAGE value="find Start" />
-    <option name="LAST_COMMIT_MESSAGE" value="find Start" />
+    <MESSAGE value="find and replec design" />
+    <option name="LAST_COMMIT_MESSAGE" value="find and replec design" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -404,7 +411,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cls_main_from.py</url>
-          <line>301</line>
+          <line>305</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>

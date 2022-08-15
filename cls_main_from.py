@@ -212,11 +212,15 @@ class cls_main_from(QtWidgets.QMainWindow):
         xx.redo()
 
     def find_actio(self):
-        print("find")
+
         i = self.getActiveTabIndex()
         xx = self.ui.tabWidget.widget(i)
-        #SaveStatus = xx.findFunction("class",True)
-        ret = searchDialog(self, "class", xx)
+        textToFind= self.findLineEdit.text()
+        if textToFind=="":
+            self.findLineEdit.setFocus()
+        else:
+            SaveStatus = xx.findFunction(textToFind,True)
+
 
 
     def replace_action(self):
@@ -414,14 +418,3 @@ class cls_main_from(QtWidgets.QMainWindow):
     def watch_action(self):
         print("watch")
 
-class searchDialog(QDialog):
-    def __init__(self, parent, ret_text, editor):
-        super(searchDialog, self).__init__(parent)
-        self.parent = parent
-        self.editor = editor
-        #self.setWindowIcon(QIcon("icons/program.svg"))
-        self.setWindowTitle("Search...")
-        self.setWindowModality(Qt.ApplicationModal)
-        self.resize(500, 300)
-        #self.exec_()
-        self.show()
