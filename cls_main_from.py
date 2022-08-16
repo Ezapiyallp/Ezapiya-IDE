@@ -232,7 +232,19 @@ class cls_main_from(QtWidgets.QMainWindow):
 
 
     def replace_action(self):
-        print("replace")
+        i = self.getActiveTabIndex()
+        xx = self.ui.tabWidget.widget(i)
+        text= str(xx.text())
+        textToFind = self.findLineEdit.text()
+        textToreplace = self.replaceLineEdit.text()
+        if textToFind == "":
+            self.findLineEdit.setFocus()
+        else:
+            if textToreplace== "":
+                self.replaceLineEdit.setFocus()
+            else:
+                xx.setText(text.replace(textToFind,textToreplace))
+
 
     def goto_action(self):
         print("goto")
