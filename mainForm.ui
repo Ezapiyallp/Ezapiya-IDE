@@ -691,7 +691,7 @@ background : darkgreen;
    <property name="minimumSize">
     <size>
      <width>150</width>
-     <height>40</height>
+     <height>111</height>
     </size>
    </property>
    <property name="styleSheet">
@@ -720,7 +720,11 @@ background : darkgreen;
     <number>1</number>
    </attribute>
    <widget class="QWidget" name="dockWidgetContents_project">
-    <layout class="QVBoxLayout" name="verticalLayout_3"/>
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <item>
+      <widget class="QTreeWidget" name="treeWidget"/>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QDockWidget" name="dockWidget_preproty">

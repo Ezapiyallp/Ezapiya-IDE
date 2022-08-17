@@ -431,6 +431,7 @@ class cls_main_from(QtWidgets.QMainWindow):
 
     def start_debug_action(self):
         print("start")
+        self.load_project_structure("E:/Temp/cpro", self.ui.treeWidget)
     def execute_next_line_action(self):
         print("line")
     def execute_next_funtion_action(self):
@@ -444,3 +445,21 @@ class cls_main_from(QtWidgets.QMainWindow):
     def watch_action(self):
         print("watch")
 
+    def load_project_structure(sefl,startpath, tree):
+        """
+        Load Project structure tree
+        :param startpath:
+        :param tree:
+        :return:
+        """
+        import os
+        from PyQt5.QtWidgets import QTreeWidgetItem
+        from PyQt5.QtGui import QIcon
+        for element in os.listdir(startpath):
+            path_info = startpath + "/" + element
+            parent_itm = QTreeWidgetItem(tree, [os.path.basename(element)])
+            if os.path.isdir(path_info):
+                sefl.load_project_structure(path_info, parent_itm)
+                parent_itm.setIcon(0, QIcon('assets/folder.ico'))
+            else:
+                parent_itm.setIcon(0, QIcon('assets/file.ico'))
