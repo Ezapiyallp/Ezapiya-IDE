@@ -105,6 +105,7 @@ class SimplePythonEditor(QsciScintilla):
 
         self.findFirst(wordToFind, False, False, False, False, True, line, index, False)
 
+
     def openFile(self,fileName):
         self.fullFileName = fileName[0]
         tfileName=fileName[0]

@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f4f90978-62e2-4ff4-97de-3e29be78eb33" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SimplePythonEditor.py" beforeDir="false" afterPath="$PROJECT_DIR$/SimplePythonEditor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cls_main_from.py" beforeDir="false" afterPath="$PROJECT_DIR$/cls_main_from.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -357,7 +358,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660580478555</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="reples">
+      <created>1660657207889</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1660657207889</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -398,34 +406,35 @@
     <MESSAGE value="icon" />
     <MESSAGE value="find Start" />
     <MESSAGE value="find and replec design" />
-    <option name="LAST_COMMIT_MESSAGE" value="find and replec design" />
+    <MESSAGE value="reples" />
+    <option name="LAST_COMMIT_MESSAGE" value="reples" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/SimplePythonEditor.py</url>
-          <line>309</line>
+          <line>308</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/SimplePythonEditor.py</url>
-          <line>366</line>
+          <line>365</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/SimplePythonEditor.py</url>
-          <line>371</line>
+          <line>370</line>
           <option name="timeStamp" value="15" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/SimplePythonEditor.py</url>
-          <line>445</line>
+          <line>444</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/cls_main_from.py</url>
-          <line>325</line>
+          <line>331</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>

@@ -89,7 +89,7 @@ class cls_main_from(QtWidgets.QMainWindow):
         self.ui.actionWatch.triggered.connect(self.watch_action)
 
         self.ui.dockWidget_tools.setVisible(False)
-        self.ui.dockWidget_project.setVisible(False)
+        self.ui.dockWidget_project.setVisible(True)
         self.ui.dockWidget_preproty.setVisible(False)
         self.erronOnCompial=False
     def closeTab (self, currentIndex):
@@ -237,6 +237,7 @@ class cls_main_from(QtWidgets.QMainWindow):
         text= str(xx.text())
         textToFind = self.findLineEdit.text()
         textToreplace = self.replaceLineEdit.text()
+        ln, ps = xx.getCursorPosition()
         if textToFind == "":
             self.findLineEdit.setFocus()
         else:
@@ -244,10 +245,16 @@ class cls_main_from(QtWidgets.QMainWindow):
                 self.replaceLineEdit.setFocus()
             else:
                 xx.setText(text.replace(textToFind,textToreplace))
-
+                xx.ensureLineVisible(ln)
+                xx.setCursorPosition(ln, ps)
 
     def goto_action(self):
-        print("goto")
+        i = self.getActiveTabIndex()
+        xx = self.ui.tabWidget.widget(i)
+        lineNumber= int(self.GotoLineEdit.text())
+        xx.ensureLineVisible(lineNumber)
+        xx.setCursorPosition(lineNumber, 1)
+        #xx.Lines[50 - 1].Goto()
 
 
         ##### View Mune All Action
@@ -273,15 +280,14 @@ class cls_main_from(QtWidgets.QMainWindow):
         #     self.ui.actiontool_Window.setIconVisibleInMenu(True)
 
     def project_window_action(self):
-        pass
-        # if self.project_window_status == True:
-        #     self.ui.dockWidget_project.setVisible(False)
-        #     self.project_window_status =False
-        #     self.ui.actionProject_Windows.setIconVisibleInMenu(False)
-        # else:
-        #     self.ui.dockWidget_project.setVisible(True)
-        #     self.project_window_status = True
-        #     self.ui.actionProject_Windows.setIconVisibleInMenu(True)
+         if self.project_window_status == True:
+             self.ui.dockWidget_project.setVisible(False)
+             self.project_window_status =False
+             self.ui.actionProject_Windows.setIconVisibleInMenu(False)
+         else:
+             self.ui.dockWidget_project.setVisible(True)
+             self.project_window_status = True
+             self.ui.actionProject_Windows.setIconVisibleInMenu(True)
 
     def property_window_action(self):
         pass
