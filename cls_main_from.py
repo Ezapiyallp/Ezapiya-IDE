@@ -1,8 +1,8 @@
 import subprocess
 import os
 from subprocess import Popen, PIPE
-from PyQt5 import QtWidgets, Qt
-from PyQt5.QtWidgets import QFileDialog, QMessageBox, QDialog,QLineEdit
+from PyQt5 import QtWidgets, QtGui, QtCore
+from PyQt5.QtWidgets import QFileDialog, QMessageBox, QDialog, QLineEdit, QFileSystemModel
 import sys
 from PyQt5.QtGui import *
 from PyQt5.QtCore import *
@@ -92,10 +92,38 @@ class cls_main_from(QtWidgets.QMainWindow):
         self.ui.dockWidget_project.setVisible(True)
         self.ui.dockWidget_preproty.setVisible(False)
         self.erronOnCompial=False
+        self.ui.treeView.doubleClicked.connect(self.treeViewopenFile)
+
+    def treeViewopenFile(self):
+        index = self.ui.treeView.currentIndex()
+        file_path = self.model.filePath(index)
+        print(file_path)
+        #os.startfile(file_path)
+        ne = SimplePythonEditor()
+
+        fileName = file_path
+        fullFileName = file_path
+        status = 0
+        for i in range(0, self.ui.tabWidget.count()):
+            xx = self.ui.tabWidget.widget(i)
+            if fullFileName == xx.getFullFileName():
+                status = 1
+                break
+        if status == 1:
+            self.ui.tabWidget.setCurrentIndex(i)
+        else:
+            fileTital = ne.openFile_form_command_line(fileName)
+            tfileName = fileTital
+            tfileName = tfileName.split('/')
+            fileName = tfileName[len(tfileName) - 1]
+            self.ui.tabWidget.addTab(ne, fileName)
+            self.tabCount = self.tabCount + 1
+            self.ui.tabWidget.setCurrentIndex(self.ui.tabWidget.count() - 1)
+
     def closeTab (self, currentIndex):
         self.ui.tabWidget.removeTab(currentIndex)
         self.tabCount = self.tabCount - 1
-        if currentIndex==0 and self.tabCount==-1 :
+        if currentIndex == 0 and self.tabCount==-1 :
             self.editor.setText("")
             self.ui.tabWidget.addTab(self.editor, 'New File')
             self.tabCount = self.tabCount + 1
@@ -154,8 +182,15 @@ class cls_main_from(QtWidgets.QMainWindow):
         self.ui.tabWidget.setCurrentIndex(self.ui.tabWidget.count() - 1)
 
     def open_folder_action(self):
-        pass
-
+        folder = QFileDialog.getExistingDirectory(self, 'Project Data', '')
+        if folder:
+            print(folder)
+            self.model = QFileSystemModel()
+            self.model.setRootPath((QtCore.QDir.rootPath()))
+            self.ui.treeView.setModel(self.model)
+            self.ui.treeView.setRootIndex(self.model.index(folder))
+            self.ui.treeView.setSortingEnabled(True)
+            self.ui.treeView.setColumnWidth(0, 800)
     def savefile_actoin(self):
         i = self.getActiveTabIndex()
         xx = self.ui.tabWidget.widget(i)
@@ -431,7 +466,7 @@ class cls_main_from(QtWidgets.QMainWindow):
 
     def start_debug_action(self):
         print("start")
-        self.load_project_structure("E:/Temp/cpro", self.ui.treeWidget)
+
     def execute_next_line_action(self):
         print("line")
     def execute_next_funtion_action(self):

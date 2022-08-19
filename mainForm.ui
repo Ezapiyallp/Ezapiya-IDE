@@ -722,7 +722,12 @@ background : darkgreen;
    <widget class="QWidget" name="dockWidgetContents_project">
     <layout class="QVBoxLayout" name="verticalLayout_3">
      <item>
-      <widget class="QTreeWidget" name="treeWidget"/>
+      <widget class="QTreeView" name="treeView">
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);
+font: italic 14pt &quot;Arial&quot;;</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
